@@ -4,6 +4,6 @@ class Controller_Front extends Controller_Application
 {
     public function action_index()
     {
-
+        $this->template->content->days = ORM::factory('day')->upcoming()->find_all();
     }
 }

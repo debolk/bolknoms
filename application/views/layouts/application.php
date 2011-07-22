@@ -4,10 +4,12 @@
     <meta charset="utf-8"/>
     <title>Noms @ De Bolk</title>
 
-    <link rel="stylesheet" href="css/application.css" type="text/css"/>
+    <link rel="stylesheet" href="stylesheets/application.css" type="text/css"/>
     <style type="text/css" src="javascripts/jquery.js"></style>
     <style type="text/css" src="javascripts/application.js"></style>
 <body>
-    <?php echo $content; ?>
+    <div id="container" class="clearfix">
+        <?php echo $content; ?>
+    </div>
 </body>
 </html>
