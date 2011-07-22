@@ -2,6 +2,8 @@
 
 class Model_Day extends ORM
 {
+    protected $_has_many = array('registrations' => array());
+
     public function __construct()
     {
         parent::__construct();

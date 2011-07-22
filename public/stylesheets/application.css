@@ -123,7 +123,8 @@ a {
 
 .label {
     font-weight: bold;
-    width: 200px;
+    clear: left;
+    width: 150px;
     float: left;
 }
 
@@ -133,4 +134,53 @@ a {
     height: 0;
     clear: both;
     visibility: hidden;
+}
+
+input[type="submit"] {
+    float: left;
+    margin-left: 150px;
+}
+
+/*
+* Table formatting
+*/
+form th {
+    text-align: left;
+}
+
+form td {
+    padding-right: 1em;
+}
+
+form .number {
+    text-align: center;
+}
+
+/*
+ * Messages
+ */
+.notification {
+    border: 2px solid black;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.notification.success {
+    background-color: #BFB;
+    border-color: #9E9;
+}
+
+.notification.error {
+    background-color: #FBB;
+    border-color: #E99;
+}
+
+.notification.warning {
+    background-color: #FFB;
+    border-color: #EE9;
+}
+
+.zero {
+    font-style: italic;
+    color: rgb(128, 128, 128);
 }
