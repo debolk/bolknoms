@@ -101,6 +101,7 @@ Kohana::$config->attach(new Config_File);
 Kohana::modules(array(
     'database'   => MODPATH.'database',   // Database access
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+	'flash'      => MODPATH.'flash',      // Flash messages
 ));
 
 /**
