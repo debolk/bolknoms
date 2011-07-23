@@ -9,7 +9,12 @@ a img {
 }
 
 a {
-    color: #0000FF;
+    color: #D12E2E;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
 }
 
 .clear {
@@ -144,11 +149,11 @@ input[type="submit"] {
 /*
 * Table formatting
 */
-form th {
+th {
     text-align: left;
 }
 
-form td {
+td {
     padding-right: 1em;
 }
 
@@ -183,4 +188,8 @@ form .number {
 .zero {
     font-style: italic;
     color: rgb(128, 128, 128);
+}
+
+.navigation {
+    font-size: small;
 }
