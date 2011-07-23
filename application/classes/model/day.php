@@ -23,6 +23,16 @@ class Model_Day extends ORM
     }
 
     /**
+     * Excludes all dates later than yesterday
+     * @chainable
+     * @return $this
+     */
+    public function previous()
+    {
+        return $this->where('date','<',date('Y-m-d'));
+    }
+
+    /**
      * Controls output when an object of the class is printed
      * @return string
      */

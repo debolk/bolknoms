@@ -20,4 +20,25 @@ class Model_Registration extends ORM
     {
         return $this->name;
     }
+
+    /**
+     * Returns a comma-separated list of registrations
+     * @return string
+     */
+    public function as_list()
+    {
+        $registrations = $this->find_all();
+
+        if (count($registrations) > 0) {
+            $names = array();
+            foreach ($this->find_all() as $registration) {
+                // Use non-breakable whitespace to clean-up output
+                $names[] = str_replace(' ','&nbsp;',$registration);
+            }
+            return implode($names, ', ');
+        }
+        else {
+            return 'n.v.t.';
+        }
+    }
 }

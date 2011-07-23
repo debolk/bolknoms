@@ -6,7 +6,7 @@
 
 <?php echo Flash::display_messages(); ?>
 
-<?php echo Form::open('/aanmelden'); ?>
+<form action="/aanmelden" method="post" accept-charset="utf-8" class="clearfix">
     <p>
         <label for="name" class="label">Naam</label>
         <input type="text" name="name" id="name"/>
@@ -37,3 +37,11 @@
         <input type="submit" id="submit" value="Aanmelden"/>
     </p>
 </form>
+
+<p class="navigation">
+    Inschrijven |
+    <a href="administratie">
+        <img src="/images/key.png" alt="" width="16" height="16" />
+        Administratie
+    </a>
+</p>

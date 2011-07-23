@@ -109,10 +109,21 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+Route::set('inschrijven', 'inschrijven')
+	->defaults(array(
+		'controller' => 'front',
+		'action'     => 'index',
+	));
 Route::set('aanmelden', 'aanmelden')
 	->defaults(array(
 		'controller' => 'front',
 		'action'     => 'aanmelden',
+	));
+
+Route::set('administratie', 'administratie')
+	->defaults(array(
+		'controller' => 'front',
+		'action'     => 'administratie',
 	));
 
 
