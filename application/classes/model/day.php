@@ -4,12 +4,21 @@ class Model_Day extends ORM
 {
     protected $_has_many = array('registrations' => array());
 
+    /**
+     * Defines the validation rules for this model
+     * @return array
+     */
+    public function rules()
+    {
+        return array('date' => array(array('not_empty')));
+    }
+
     public function __construct()
     {
         parent::__construct();
-        
+
         // Default sorting order
-        $this->order_by('date','asc');
+        $this->order_by('date', 'asc');
     }
 
     /**
@@ -19,7 +28,7 @@ class Model_Day extends ORM
      */
     public function upcoming()
     {
-        return $this->where('date','>=',date('Y-m-d'));
+        return $this->where('date', '>=', date('Y-m-d'));
     }
 
     /**
@@ -29,7 +38,7 @@ class Model_Day extends ORM
      */
     public function previous()
     {
-        return $this->where('date','<',date('Y-m-d'));
+        return $this->where('date', '<', date('Y-m-d'));
     }
 
     /**

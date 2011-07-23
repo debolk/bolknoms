@@ -17,11 +17,4 @@ class Controller_Front extends Controller_Application
         }
         $this->request->redirect('/');
     }
-
-    public function action_administratie()
-    {
-        $this->authenticate();
-        $this->template->content->upcoming_days = ORM::factory('day')->upcoming()->find_all();
-        $this->template->content->previous_days = ORM::factory('day')->previous()->find_all();
-    }
 }

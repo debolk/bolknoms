@@ -2,6 +2,11 @@
 
 <?php echo Flash::display_messages(); ?>
 
+<a href="administratie/nieuwe_maaltijd">
+    <img src="/images/add.png" alt="" />
+    Nieuwe maaltijd toevoegen
+</a>
+
 <h2>Komende maaltijden</h2>
 <?php echo View::factory('front/_days',array('days' => $upcoming_days)); ?>
 

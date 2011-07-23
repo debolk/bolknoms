@@ -120,13 +120,6 @@ Route::set('aanmelden', 'aanmelden')
 		'action'     => 'aanmelden',
 	));
 
-Route::set('administratie', 'administratie')
-	->defaults(array(
-		'controller' => 'front',
-		'action'     => 'administratie',
-	));
-
-
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'front',
