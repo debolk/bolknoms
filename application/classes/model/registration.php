@@ -13,6 +13,22 @@ class Model_Registration extends ORM
     }
 
     /**
+     * Defines the validation rules for this model
+     * @return array
+     */
+    public function rules()
+    {
+        return array(
+                'day_id' => array(
+                    array('not_empty'),
+                ),
+                'name' => array(
+                    array('not_empty')
+                )
+        );
+    }
+
+    /**
      * Controls output when an object of the class is printed
      * @return string
      */

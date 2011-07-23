@@ -13,9 +13,9 @@ class Model_Day extends ORM
         return array('date' => array(array('not_empty')));
     }
 
-    public function __construct()
+    public function __construct($id = NULL)
     {
-        parent::__construct();
+        parent::__construct($id);
 
         // Default sorting order
         $this->order_by('date', 'asc');
