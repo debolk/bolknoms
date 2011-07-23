@@ -6,6 +6,7 @@
 
 <?php echo Flash::display_messages(); ?>
 
+<h2>Aanmelden</h2>
 <form action="/aanmelden" method="post" accept-charset="utf-8" class="clearfix">
     <p>
         <label for="name" class="label">Naam</label>
@@ -37,6 +38,12 @@
         <input type="submit" id="submit" value="Aanmelden"/>
     </p>
 </form>
+
+<h2>Afmelden</h2>
+<p>
+    Je kunt je op dit moment nog niet online afmelden. Neem contact op met het bestuur via
+    <a href="mailto:bestuur@nieuwedelft.nl">bestuur@nieuwedelft.nl</a> of 015 212 60 12.
+</p>
 
 <p class="navigation">
     <a href="administratie">

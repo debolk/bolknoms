@@ -21,7 +21,7 @@ class Controller_Front extends Controller_Application
                     $registrations[] = $reg;
                 }
                 // Update user
-                Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd. Je ontvangt een bevestiging per e-mail.');
+                Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd');
                 // Send email
                 Mailer::factory('registration','confirm', $registrations);
             }
