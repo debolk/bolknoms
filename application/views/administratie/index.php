@@ -14,7 +14,5 @@
 <?php echo View::factory('front/_days',array('days' => $previous_days)); ?>
 
 <p class="navigation">
-    <a href="/inschrijven">Inschrijven</a> |
-    <img src="/images/key.png" alt="" width="16" height="16" />
-    Administratie
+    <a href="/inschrijven">&lsaquo; Terug naar inschrijven</a>
 </p>
