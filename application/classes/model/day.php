@@ -19,7 +19,7 @@ class Model_Day extends ORM
      */
     public function upcoming()
     {
-        return $this->where('date','>=',date('%Y-%m-%d'));
+        return $this->where('date','>=',date('Y-m-d'));
     }
 
     /**
