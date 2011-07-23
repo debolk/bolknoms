@@ -193,3 +193,7 @@ td {
 .navigation {
     font-size: small;
 }
+
+h1.error {
+    color: red;
+}
