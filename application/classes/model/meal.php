@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Model_Day extends ORM
+class Model_meal extends ORM
 {
     protected $_has_many = array('registrations' => array());
 
@@ -12,9 +12,9 @@ class Model_Day extends ORM
     {
         return array('date' => array(
                                    array('not_empty'),
-                                   array('Model_Day::valid_date'),
-                                   array('Model_Day::free_day'),
-                                   array('Model_Day::today_or_later')
+                                   array('Model_Meal::valid_date'),
+                                   array('Model_Meal::free_meal'),
+                                   array('Model_Meal::today_or_later')
                                )
                 );
     }
@@ -65,7 +65,7 @@ class Model_Day extends ORM
     public static function free_day($date)
     {
         return ! DB::select(array(DB::expr('COUNT(*)'), 'total'))
-            ->from('days')
+            ->from('meals')
             ->where('date', '=', $date)
             ->execute()
             ->get('total');

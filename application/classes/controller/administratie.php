@@ -11,27 +11,27 @@ class Controller_Administratie extends Controller_Application
     }
 
     /**
-     * List all past and current days
+     * List all past and current meals
      * @return void
      */
     public function action_index()
     {
-        $this->template->content->upcoming_days = ORM::factory('day')->upcoming()->find_all();
-        $this->template->content->previous_days = ORM::factory('day')->previous()->find_all();
+        $this->template->content->upcoming_meals = ORM::factory('meal')->upcoming()->find_all();
+        $this->template->content->previous_meals = ORM::factory('meal')->previous()->find_all();
     }
 
     /**
-     * Creates a new day in the system
+     * Creates a new meal in the system
      * @return void
      */
     public function action_nieuwe_maaltijd()
     {
-        $this->template->content->day = $day = ORM::factory('day');
+        $this->template->content->meal = $meal = ORM::factory('meal');
 
         if ($_POST) {
-            $day->values($_POST, array('date'));
+            $meal->values($_POST, array('date'));
             try {
-                $day->save();
+                $meal->save();
                 Flash::set(Flash::SUCCESS, 'Maaltijd toegevoegd');
                 $this->request->redirect('/administratie');
             }
@@ -42,9 +42,9 @@ class Controller_Administratie extends Controller_Application
         }
     }
 
-    public function action_verwijder($day_id)
+    public function action_verwijder($meal_id)
     {
-        ORM::factory('day',$day_id)->delete();
+        ORM::factory('meal',$meal_id)->delete();
         Flash::set(Flash::SUCCESS,'Maaltijd verwijderd');
         $this->request->redirect('/administratie');
     }

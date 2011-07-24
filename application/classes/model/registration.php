@@ -2,7 +2,7 @@
 
 class Model_Registration extends ORM
 {
-    protected $_belongs_to = array('day' => array());
+    protected $_belongs_to = array('meal' => array());
 
     public function __construct()
     {
@@ -19,7 +19,7 @@ class Model_Registration extends ORM
     public function rules()
     {
         return array(
-                'day_id' => array(
+                'meal_id' => array(
                     array('not_empty'),
                 ),
                 'name' => array(

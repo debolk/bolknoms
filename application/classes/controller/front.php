@@ -4,7 +4,7 @@ class Controller_Front extends Controller_Application
 {
     public function action_index()
     {
-        $this->template->content->days = ORM::factory('day')->upcoming()->find_all();
+        $this->template->content->meals = ORM::factory('meal')->upcoming()->find_all();
     }
 
     public function action_aanmelden()
@@ -13,10 +13,10 @@ class Controller_Front extends Controller_Application
             try {
                 $registrations = array();
                 // Create registrations
-                foreach($_POST['days'] as $day_id) {
+                foreach($_POST['meals'] as $meal_id) {
                     $reg = ORM::factory('registration');
                     $reg->name = $_POST['name'];
-                    $reg->day = ORM::factory('day',$day_id);
+                    $reg->meal = ORM::factory('meal',$meal_id);
                     $reg->save();
                     $registrations[] = $reg;
                 }
