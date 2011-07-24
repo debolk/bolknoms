@@ -12,7 +12,8 @@ class Model_Day extends ORM
     {
         return array('date' => array(
                                    array('not_empty'),
-                                   array('Model_Day::free_day')
+                                   array('Model_Day::free_day'),
+                                   array('Model_Day::today_or_later')
                                )
                 );
     }
@@ -67,5 +68,18 @@ class Model_Day extends ORM
             ->where('date', '=', $date)
             ->execute()
             ->get('total');
+    }
+
+    /**
+     * Checks whether a date is in the future
+     * @static
+     * @param string $date
+     * @return bool
+     */
+    public static function today_or_later($date)
+    {
+        $today = strtotime(date('Y-m-d'));
+        $date = strtotime($date);
+        return ($today <= $date);
     }
 }
