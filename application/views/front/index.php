@@ -24,11 +24,11 @@
         </tr>
         </thead>
         <tbody>
-            <?php foreach ($days as $day): ?>
+            <?php foreach ($meals as $meal): ?>
                 <tr>
-                    <td><?php echo Form::checkbox('days[]', $day->id); ?></td>
-                    <td class="date"><?php echo $day; ?></td>
-                    <td class="number"><?php echo $day->registrations->count_all(); ?></td>
+                    <td><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
+                    <td class="date"><?php echo $meal; ?></td>
+                    <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

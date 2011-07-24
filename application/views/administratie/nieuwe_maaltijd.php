@@ -1,6 +1,6 @@
 <h1>Nieuwe maaltijd toevoegen</h1>
 
-<?php Helper_Form::error_messages_for($day); ?>
+<?php Helper_Form::error_messages_for($meal); ?>
 
 <form action="/administratie/nieuwe_maaltijd" method="post" accept-charset="utf-8" class="clearfix">
     <p>
