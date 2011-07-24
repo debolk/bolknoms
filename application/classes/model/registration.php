@@ -43,9 +43,7 @@ class Model_Registration extends ORM
      */
     public function as_list()
     {
-        $registrations = $this->find_all();
-
-        if (count($registrations) > 0) {
+        if (count($this) > 0) {
             $names = array();
             foreach ($this->find_all() as $registration) {
                 // Use non-breakable whitespace to clean-up output
