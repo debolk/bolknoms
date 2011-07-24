@@ -5,7 +5,7 @@
 <form action="/administratie/nieuwe_maaltijd" method="post" accept-charset="utf-8" class="clearfix">
     <p>
        <label class="label" for="date">Datum</label>
-       <input type="text" name="date" id="date" class="datepicker" />
+       <?php echo Form::input('date',Arr::get($_POST,'date'),array('id' => 'date','class' => 'datepicker')); ?>
     </p>
     <p>
         <input type="submit" value="Maaltijd toevoegen" />
