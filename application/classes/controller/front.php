@@ -22,8 +22,6 @@ class Controller_Front extends Controller_Application
                 }
                 // Update user
                 Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd');
-                // Send email
-                Mailer::factory('registration','confirm', $registrations);
             }
             catch (ORM_Validation_Exception $e) {
                 // Nothing here, errors retrieved in the view
