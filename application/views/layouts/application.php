@@ -4,9 +4,12 @@
         <meta charset="utf-8"/>
         <title>Noms @ De Bolk</title>
 
+        <link rel="stylesheet" href="/stylesheets/jquery-ui.css" type="text/css"/>
         <link rel="stylesheet" href="/stylesheets/application.css" type="text/css"/>
-        <style type="text/css" src="/javascripts/jquery.js"></style>
-        <style type="text/css" src="/javascripts/application.js"></style>
+
+        <script type="text/javascript" src="/javascripts/jquery.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+        <script type="text/javascript" src="/javascripts/application.js"></script>
 
         <base href="<?php echo URL::base(true,true); ?>" />
     </head>
