@@ -153,13 +153,8 @@ th {
     text-align: left;
 }
 
-td {
-    padding-right: 1em;
-}
-
-.number {
-    text-align: center;
-}
+td.number { text-align: center; }
+td.date   { text-align: right; }
 
 tbody tr:nth-child(2n-1) {
     background-color: #dFdFdF;

@@ -9,7 +9,7 @@
         <tbody>
             <?php foreach ($days as $day): ?>
                 <tr>
-                    <td><?php echo $day; ?></td>
+                    <td class="date"><?php echo $day; ?></td>
                     <td class="number"><?php echo $day->registrations->count_all(); ?></td>
                     <td><?php echo $day->registrations->as_list(); ?></td>
                     <td>

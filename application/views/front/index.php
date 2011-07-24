@@ -27,7 +27,7 @@
             <?php foreach ($days as $day): ?>
                 <tr>
                     <td><?php echo Form::checkbox('days[]', $day->id); ?></td>
-                    <td><?php echo $day; ?></td>
+                    <td class="date"><?php echo $day; ?></td>
                     <td class="number"><?php echo $day->registrations->count_all(); ?></td>
                 </tr>
             <?php endforeach; ?>
