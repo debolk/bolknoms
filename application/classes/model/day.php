@@ -12,6 +12,7 @@ class Model_Day extends ORM
     {
         return array('date' => array(
                                    array('not_empty'),
+                                   array('Model_Day::valid_date'),
                                    array('Model_Day::free_day'),
                                    array('Model_Day::today_or_later')
                                )
@@ -81,5 +82,22 @@ class Model_Day extends ORM
         $today = strtotime(date('Y-m-d'));
         $date = strtotime($date);
         return ($today <= $date);
+    }
+
+    /**
+     * Checks whether a date is well-formed (yyyy-mm-dd) and valid
+     * @static
+     * @param string $date
+     * @return bool validity of the date
+     */
+    public static function valid_date($date)
+    {
+        // Invalid date by definition if you can't split it
+        $date_components = explode('-',$date);
+        if (count($date_components) <> 3 ) {
+            return false;
+        }
+        // Check date validity
+        return checkdate($date_components[1], $date_components[2], $date_components[0]);
     }
 }
