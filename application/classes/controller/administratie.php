@@ -41,4 +41,11 @@ class Controller_Administratie extends Controller_Application
             }
         }
     }
+
+    public function action_verwijder($day_id)
+    {
+        ORM::factory('day',$day_id)->delete();
+        Flash::set(Flash::SUCCESS,'Maaltijd verwijderd');
+        $this->request->redirect('/administratie');
+    }
 }
