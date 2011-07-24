@@ -53,7 +53,7 @@ class Model_Day extends ORM
      */
     public function __toString()
     {
-        return date('l j F Y', strtotime($this->date));
+        return strftime('%A %d %B %Y', strtotime($this->date));
     }
 
     /**
