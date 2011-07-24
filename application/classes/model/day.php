@@ -10,7 +10,11 @@ class Model_Day extends ORM
      */
     public function rules()
     {
-        return array('date' => array(array('not_empty')));
+        return array('date' => array(
+                                   array('not_empty'),
+                                   array('Model_Day::free_day')
+                               )
+                );
     }
 
     public function __construct($id = NULL)
@@ -48,5 +52,20 @@ class Model_Day extends ORM
     public function __toString()
     {
         return date('l j F Y', strtotime($this->date));
+    }
+
+    /**
+     * Returns whether the given date is still free
+     * @static
+     * @param string $date
+     * @return bool
+     */
+    public static function free_day($date)
+    {
+        return ! DB::select(array(DB::expr('COUNT(*)'), 'total'))
+            ->from('days')
+            ->where('date', '=', $date)
+            ->execute()
+            ->get('total');
     }
 }
