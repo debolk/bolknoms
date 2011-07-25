@@ -99,11 +99,16 @@ Kohana::$config->attach(new Config_File);
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
-Kohana::modules(array(
+$modules = array(
     'database'   => MODPATH.'database',   // Database access
 	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	'flash'      => MODPATH.'flash',      // Flash messages
-));
+);
+// Enable unittesting, except on production
+if (Kohana::$environment !== Kohana::PRODUCTION) {
+    $modules['unittest'] = MODPATH.'unittest';
+}
+Kohana::modules($modules);
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
