@@ -1,6 +1,6 @@
 <h1>Bolknoms</h1>
 <p class="introduction">
-    Met deze extreem hippe tool kun je je aanmelden voor maaltijden op De Bolk.<br/>
+    Met deze extreem hippe tool kun je je aanmelden voor maaltijden op De Bolk.
     Aanmelden is niet verplicht, behalve in witte weken en tentamenwerken.
 </p>
 
