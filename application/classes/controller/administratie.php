@@ -42,8 +42,9 @@ class Controller_Administratie extends Controller_Application
         }
     }
 
-    public function action_verwijder($meal_id)
+    public function action_verwijder()
     {
+        $meal_id = $this->request->param('id');
         ORM::factory('meal',$meal_id)->delete();
         Flash::set(Flash::SUCCESS,'Maaltijd verwijderd');
         $this->request->redirect('/administratie');
