@@ -12,7 +12,7 @@ CREATE TABLE `registrations` (
 	`name` VARCHAR(45) NOT NULL,
 	`day_id` INT UNSIGNED NOT NULL,
 	PRIMARY KEY (`id`),
-	CONSTRAINT `registrations_day_id_meals_id` FOREIGN KEY (`meal_id`) REFERENCES `meals` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+	CONSTRAINT `registrations_day_id_meals_id` FOREIGN KEY (`day_id`) REFERENCES `days` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
