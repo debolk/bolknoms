@@ -9,6 +9,7 @@
 
         <script type="text/javascript" src="/javascripts/jquery.js"></script>
         <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+        <script type="text/javascript" src="/javascripts/date-format.js"></script>
         <script type="text/javascript" src="/javascripts/application.js"></script>
 
         <base href="<?php echo URL::base(true,true); ?>" />

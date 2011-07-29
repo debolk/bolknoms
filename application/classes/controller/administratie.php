@@ -72,4 +72,20 @@ class Controller_Administratie extends Controller_Application
         Flash::set(Flash::SUCCESS,"$name afgemeld voor de maaltijd op $meal");
         $this->request->redirect('/administratie');
     }
+
+    /**
+     * Prints an array (json-encoded) of all upcoming dates with meals planned
+     * @return void
+     */
+    public function action_gevulde_dagen()
+    {
+        $meals = ORM::factory('meal')->upcoming()->find_all();
+        $dates = array();
+        foreach ($meals as $meal) {
+            $dates[] = $meal->date;
+        }
+        header('Content-Type: application/json');
+        print(json_encode($dates));
+        exit;
+    }
 }
