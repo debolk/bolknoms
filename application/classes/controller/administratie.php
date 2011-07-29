@@ -21,7 +21,7 @@ class Controller_Administratie extends Controller_Application
     }
 
     /**
-     * Creates a new meal in the system
+     * Creates a new meal
      * @return void
      */
     public function action_nieuwe_maaltijd()
@@ -42,6 +42,10 @@ class Controller_Administratie extends Controller_Application
         }
     }
 
+    /**
+     * Removes a meal
+     * @return void
+     */
     public function action_verwijder()
     {
         $meal = ORM::factory('meal',$this->request->param('id'));
@@ -53,6 +57,10 @@ class Controller_Administratie extends Controller_Application
         $this->request->redirect('/administratie');
     }
 
+    /**
+     * Removes a registration
+     * @return void
+     */
     public function action_afmelden()
     {
         $registration = ORM::factory('registration',$this->request->param('id'));

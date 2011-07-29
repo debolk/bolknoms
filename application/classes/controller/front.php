@@ -2,11 +2,19 @@
 
 class Controller_Front extends Controller_Application
 {
+    /**
+     * Displays a form with all available meals
+     * @return void
+     */
     public function action_index()
     {
         $this->template->content->meals = ORM::factory('meal')->upcoming()->find_all();
     }
 
+    /**
+     * Adds a new set of registrations with a specified name
+     * @return void
+     */
     public function action_aanmelden()
     {
         if ($_POST && isset($_POST['name']) && isset($_POST['meals'])) {
