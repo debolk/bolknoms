@@ -150,6 +150,10 @@ input[type="submit"] {
 /*
 * Table formatting
 */
+table th, table td {
+    vertical-align: top;
+}
+
 th {
     text-align: left;
 }
