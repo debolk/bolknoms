@@ -16,24 +16,30 @@
 
     <p>
         <span class="label">Eettafels</span>
-    <table>
-        <thead>
-        <tr>
-            <th>&nbsp;</th>
-            <th>Datum</th>
-            <th>Aanmeldingen</th>
-        </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($meals as $meal): ?>
+        <?php if (count($meals) > 0): ?>
+            <table>
+                <thead>
                 <tr>
-                    <td><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
-                    <td class="date"><?php echo $meal; ?></td>
-                    <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
+                    <th>&nbsp;</th>
+                    <th>Datum</th>
+                    <th>Aanmeldingen</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+                </thead>
+                <tbody>
+
+                    <?php foreach ($meals as $meal): ?>
+                        <tr>
+                            <td><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
+                            <td class="date"><?php echo $meal; ?></td>
+                            <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+
+                </tbody>
+            </table>
+        <?php else: ?>
+            <span class="zero">Er zijn geen maaltijden beschikbaar om je voor aan te melden.</span>
+        <?php endif; ?>
     </p>
     <p>
         <input type="submit" id="submit" value="Aanmelden"/>
