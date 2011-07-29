@@ -1,4 +1,4 @@
-RENAME TABLE `meals` TO `meals`;
+RENAME TABLE `days` TO `meals`;
 
 ALTER TABLE `registrations`
 	DROP FOREIGN KEY `registrations_day_id_days_id`;
