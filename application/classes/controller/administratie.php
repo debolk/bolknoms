@@ -49,4 +49,16 @@ class Controller_Administratie extends Controller_Application
         Flash::set(Flash::SUCCESS,'Maaltijd verwijderd');
         $this->request->redirect('/administratie');
     }
+
+    public function action_afmelden()
+    {
+        $registration = ORM::factory('registration',$this->request->param('id'))->find();
+        $name = $registration->name;
+        $meal = $registration->meal;
+
+        $registration->delete();
+
+        Flash::set(Flash::SUCCESS,"$name afgemeld voor de maaltijd op $meal");
+        $this->request->redirect('/administratie');
+    }
 }
