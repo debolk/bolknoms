@@ -9,7 +9,7 @@ class Controller_Front extends Controller_Application
 
     public function action_aanmelden()
     {
-        if ($_POST && isset($_POST['meal']) && isset($_POST['meals'])) {
+        if ($_POST && isset($_POST['name']) && isset($_POST['meals'])) {
             try {
                 $registrations = array();
                 // Create registrations
