@@ -19,7 +19,7 @@ class Model_meal extends ORM
                 );
     }
 
-    public function __construct($id = NULL)
+    public function __construct($id = null)
     {
         parent::__construct($id);
 
