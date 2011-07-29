@@ -9,7 +9,7 @@ class Controller_Front extends Controller_Application
 
     public function action_aanmelden()
     {
-        if ($_POST) {
+        if ($_POST && isset($_POST['meal']) && isset($_POST['meals'])) {
             try {
                 $registrations = array();
                 // Create registrations
@@ -26,6 +26,9 @@ class Controller_Front extends Controller_Application
             catch (ORM_Validation_Exception $e) {
                 // Nothing here, errors retrieved in the view
             }
+        }
+        else {
+            Flash::set(Flash::ERROR, 'Je moet wel even je naam invullen en een datum kiezen');
         }
         $this->request->redirect('/');
     }
