@@ -20,12 +20,18 @@ class Model_Registration extends ORM
     {
         return array(
                 'meal_id' => array(
-                    array('not_empty'),
+                    array('not_empty')
                 ),
                 'name' => array(
                     array('not_empty')
                 )
         );
+    }
+
+    public function save(Validation $validation = null)
+    {
+        $this->salt = $this->generate_salt();
+        return parent::save($validation);
     }
 
     /**
@@ -35,5 +41,17 @@ class Model_Registration extends ORM
     public function __toString()
     {
         return $this->name;
+    }
+
+    private function generate_salt()
+    {
+        $source = 'abcdefghijklmnopqrstuvwxyz';
+        $salt  = '';
+
+        for ($i=0; $i<10; $i++) {
+            $salt .= $source[mt_rand(0,25)];
+        }
+
+        return $salt;
     }
 }

@@ -17,26 +17,31 @@ class Controller_Front extends Controller_Application
      */
     public function action_aanmelden()
     {
-        if ($_POST && isset($_POST['name']) && isset($_POST['meals'])) {
+        if ($_POST && isset($_POST['name']) && isset($_POST['meals']) && isset($_POST['email'])) {
+            $name = HTML::chars($_POST['name']);
+            $email = HTML::chars($_POST['email']);
+
             try {
                 $registrations = array();
                 // Create registrations
                 foreach($_POST['meals'] as $meal_id) {
                     $reg = ORM::factory('registration');
-                    $reg->name = $_POST['name'];
-                    $reg->meal = ORM::factory('meal',$meal_id);
+                    $reg->name = $name;
+                    $reg->email = $email;
+                    $reg->meal = ORM::factory('meal',(int)$meal_id);
                     $reg->save();
                     $registrations[] = $reg;
                 }
                 // Update user
-                Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd');
+                Mailer_Registration::send_confirmation($name, $email, $registrations);
+                Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd. Je ontvangt een e-mail met alle details.');
             }
             catch (ORM_Validation_Exception $e) {
                 // Nothing here, errors retrieved in the view
             }
         }
         else {
-            Flash::set(Flash::ERROR, 'Je moet wel even je naam invullen en een datum kiezen');
+            Flash::set(Flash::ERROR, 'Je moet wel even je naam en e-mailadres invullen en een datum kiezen');
         }
         $this->request->redirect('/');
     }

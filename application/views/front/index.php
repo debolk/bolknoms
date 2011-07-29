@@ -13,6 +13,10 @@
         <label for="name" class="label">Naam</label>
         <input type="text" name="name" id="name"/>
     </p>
+    <p>
+        <label for="email" class="label">E-mail</label>
+        <input type="text" name="email" id="email"/>
+    </p>
 
     <p>
         <span class="label">Eettafels</span>
