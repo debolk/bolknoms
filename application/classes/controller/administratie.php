@@ -55,7 +55,7 @@ class Controller_Administratie extends Controller_Application
 
     public function action_afmelden()
     {
-        $registration = ORM::factory('registration',$this->request->param('id'))->find();
+        $registration = ORM::factory('registration',$this->request->param('id'));
         $name = $registration->name;
         $meal = $registration->meal;
 

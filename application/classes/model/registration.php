@@ -4,9 +4,9 @@ class Model_Registration extends ORM
 {
     protected $_belongs_to = array('meal' => array());
 
-    public function __construct()
+    public function __construct($id = null)
     {
-        parent::__construct();
+        parent::__construct($id);
         
         // Default sorting order
         $this->order_by('name','asc');
