@@ -1,7 +1,8 @@
-<h1>Bolknoms</h1>
+<h1>BolkNoms</h1>
 <p class="introduction">
     Met deze extreem hippe tool kun je je aanmelden voor maaltijden op De Bolk.
-    Aanmelden is niet verplicht, behalve in witte weken en tentamenwerken.
+    De eettafel blijft open voor iedereen, iedere week van maandag tot donderdag.
+    Van te voren aanmelden hoeft alleen in witte weken en tentamenweken van de TU Delft.
 </p>
 
 <?php echo Flash::display_messages(); ?>
