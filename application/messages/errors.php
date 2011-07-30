@@ -6,7 +6,7 @@
 return array(
   'date' => array(
                   'not_empty'                  => 'Je moet een datum invullen',
-                  'Model_Meal::free_day'       => 'Op deze dag is al een maaltijd',
+                  'free_day'                   => 'Op deze dag is al een maaltijd',
                   'Model_Meal::today_or_later' => 'Je kunt geen maaltijden in het verleden toevoegen',
                   'date'                       => 'Je moet een geldige datum invoeren (yyyy-mm-dd)'
                 ),

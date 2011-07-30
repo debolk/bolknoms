@@ -13,7 +13,7 @@ class Model_meal extends ORM
         return array('date' => array(
                                    array('not_empty'),
                                    array('date'),
-                                   array('Model_Meal::free_day'),
+                                   array(array($this,'free_day')),
                                    array('Model_Meal::today_or_later')
                                )
                 );
@@ -62,13 +62,18 @@ class Model_meal extends ORM
      * @param string $date
      * @return bool
      */
-    public static function free_day($date)
+    public function free_day($date)
     {
-        return ! DB::select(array(DB::expr('COUNT(*)'), 'total'))
-            ->from('meals')
-            ->where('date', '=', $date)
-            ->execute()
-            ->get('total');
+        $candidate = ORM::factory('meal',array('date' => $date));
+        if (! $candidate->loaded()) {
+            return true;
+        }
+        if ($candidate->id == $this->id) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**
