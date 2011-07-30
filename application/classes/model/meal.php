@@ -12,7 +12,7 @@ class Model_meal extends ORM
     {
         return array('date' => array(
                                    array('not_empty'),
-                                   array('Model_Meal::valid_date'),
+                                   array('date'),
                                    array('Model_Meal::free_day'),
                                    array('Model_Meal::today_or_later')
                                )

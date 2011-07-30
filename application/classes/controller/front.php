@@ -17,31 +17,28 @@ class Controller_Front extends Controller_Application
      */
     public function action_aanmelden()
     {
-        if ($_POST && isset($_POST['name']) && isset($_POST['meals']) && isset($_POST['email'])) {
+        $validation = $this->valideer_aanmelding($_POST);
+        if ($validation->check()) {
+            // Escape data
             $name = HTML::chars($_POST['name']);
             $email = HTML::chars($_POST['email']);
-
-            try {
-                $registrations = array();
-                // Create registrations
-                foreach($_POST['meals'] as $meal_id) {
-                    $reg = ORM::factory('registration');
-                    $reg->name = $name;
-                    $reg->email = $email;
-                    $reg->meal = ORM::factory('meal',(int)$meal_id);
-                    $reg->save();
-                    $registrations[] = $reg;
-                }
-                // Update user
-                Mailer_Registration::send_confirmation($name, $email, $registrations);
-                Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd. Je ontvangt een e-mail met alle details.');
+            // Create registrations
+            $registrations = array();
+            foreach ($_POST['meals'] as $meal_id) {
+                $reg = ORM::factory('registration');
+                $reg->name = $name;
+                $reg->email = $email;
+                $reg->meal = ORM::factory('meal', (int)$meal_id);
+                $reg->save();
+                $registrations[] = $reg;
             }
-            catch (ORM_Validation_Exception $e) {
-                // Nothing here, errors retrieved in the view
-            }
+            // Update user
+            Mailer_Registration::send_confirmation($name, $email, $registrations);
+            Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd. Je ontvangt een e-mail met alle details.');
         }
         else {
-            Flash::set(Flash::ERROR, 'Je moet wel even je naam en e-mailadres invullen en een datum kiezen');
+            $message = $this->errors($validation);
+            Flash::set(Flash::ERROR, $message);
         }
         $this->request->redirect('/');
     }
@@ -54,7 +51,7 @@ class Controller_Front extends Controller_Application
     {
         $id = $this->request->param('id');
         $salt = $this->request->param('salt');
-        $registration = ORM::factory('registration',array('id' => $id, 'salt' => $salt));
+        $registration = ORM::factory('registration', array('id' => $id, 'salt' => $salt));
 
         if ($registration->loaded()) {
             $date = (string)$registration->meal;
@@ -62,8 +59,44 @@ class Controller_Front extends Controller_Application
             Flash::set(Flash::SUCCESS, "Je bent afgemeld voor de maaltijd op $date");
         }
         else {
-            Flash::set(Flash::ERROR,'Je bent niet afgemeld voor de maaltijd. Dat kan verschillende oorzaken hebben: <ul><li>je bent al eerder afgemeld</li><li>de beveiligingscode klopt niet (gebruik de link in je e-mail)</li></ul>');
+            Flash::set(Flash::ERROR, 'Je bent niet afgemeld voor de maaltijd. Dat kan verschillende oorzaken hebben: <ul><li>je bent al eerder afgemeld</li><li>de beveiligingscode klopt niet (gebruik de link in je e-mail)</li></ul>');
         }
         $this->request->redirect('/');
+    }
+
+    /**
+     * Validates a registration attempt
+     * @param array $data
+     * @return Validation
+     */
+    private function valideer_aanmelding($data)
+    {
+        $validation = Validation::factory($data);
+        $validation->rules('name', array(array('not_empty')));
+        $validation->rules('email', array(array('not_empty'), array('email')));
+        $validation->rules('meals', array(array('not_empty')));
+        return $validation;
+    }
+
+    private function errors(Validation $validation)
+    {
+        $string = '';
+        $fields = $validation->errors('errors');
+
+        // Don't output anything when the errors-array is empty
+        if (sizeof($fields) === 0) {
+            return;
+        }
+
+        $string .= '<p><strong>De wijzigingen konden niet worden opgeslagen:</strong></p>';
+
+        $string .= '<ul>';
+
+        foreach ($fields as $field => $error) {
+            $string .= '<li>' . $error . '</li>';
+        }
+        $string .= '</ul>';
+
+        return $string;
     }
 }

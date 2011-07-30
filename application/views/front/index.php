@@ -7,6 +7,10 @@
 
 <?php echo Flash::display_messages(); ?>
 
+<?php if (isset($validation)): ?>
+    <?php echo Helper_Form::error_messages_for($validation); ?>
+<?php endif; ?>
+
 <h2>Aanmelden</h2>
 <form action="/aanmelden" method="post" accept-charset="utf-8" class="clearfix">
     <p>

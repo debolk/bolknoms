@@ -8,6 +8,16 @@ return array(
                   'not_empty'                  => 'Je moet een datum invullen',
                   'Model_Meal::free_day'       => 'Op deze dag is al een maaltijd',
                   'Model_Meal::today_or_later' => 'Je kunt geen maaltijden in het verleden toevoegen',
-                  'Model_Meal::valid_date'     => 'Je moet een geldige datum invoeren (yyyy-mm-dd)'
+                  'date'                       => 'Je moet een geldige datum invoeren (yyyy-mm-dd)'
+                ),
+  'name' => array(
+                  'not_empty' => 'Je moet je naam invullen',
+                  'alpha' => 'Je naam mag alleen uit letters bestaan'
+                ),
+  'email' => array(
+                  'not_empty' => 'Je moet je e-mailadres invullen'
+                ),
+  'meals' => array(
+                  'not_empty' => 'Je moet minstens één maaltijd selecteren'
                 ),
 );
