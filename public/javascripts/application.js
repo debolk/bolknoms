@@ -1,19 +1,22 @@
 var disabled_days = null;
 
 $(document).ready(function() {
-    // Load disabled days
-    get_disabled_days();
-    console.log(disabled_days);
+    // Only execute loading days on the page that's needed
+    if ($('body.administratie.nieuwe_maaltijd').size > 0) {
+        // Load disabled days
+        get_disabled_days();
+        console.log(disabled_days);
 
-    $('.datepicker').datepicker({
-        minDate: 0,
-        showWeek: true,
-        firstDay: 1,
-        dayNames: ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'],
-        dayNamesMin: ['zo','ma','di','wo','do','vr','za'],
-        dateFormat: 'yy-mm-dd',
-        beforeShowDay: check_free_date
-    });
+        $('.datepicker').datepicker({
+            minDate: 0,
+            showWeek: true,
+            firstDay: 1,
+            dayNames: ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'],
+            dayNamesMin: ['zo','ma','di','wo','do','vr','za'],
+            dateFormat: 'yy-mm-dd',
+            beforeShowDay: check_free_date
+        });
+    }
 
     $('.confirmation-needed').click(confirm_intent);
 });
