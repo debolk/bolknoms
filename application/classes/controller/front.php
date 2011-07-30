@@ -45,4 +45,25 @@ class Controller_Front extends Controller_Application
         }
         $this->request->redirect('/');
     }
+
+    /**
+     * Removes a registration (after validation)
+     * @return void
+     */
+    public function action_afmelden()
+    {
+        $id = $this->request->param('id');
+        $salt = $this->request->param('salt');
+        $registration = ORM::factory('registration',array('id' => $id, 'salt' => $salt));
+
+        if ($registration->loaded()) {
+            $date = (string)$registration->meal;
+            $registration->delete();
+            Flash::set(Flash::SUCCESS, "Je bent afgemeld voor de maaltijd op $date");
+        }
+        else {
+            Flash::set(Flash::ERROR,'Je bent niet afgemeld voor de maaltijd. Dat kan verschillende oorzaken hebben: <ul><li>je bent al eerder afgemeld</li><li>de beveiligingscode klopt niet (gebruik de link in je e-mail)</li></ul>');
+        }
+        $this->request->redirect('/');
+    }
 }

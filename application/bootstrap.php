@@ -124,6 +124,11 @@ Route::set('aanmelden', 'aanmelden')
 		'controller' => 'front',
 		'action'     => 'aanmelden',
 	));
+Route::set('afmelden', 'afmelden/<id>/<salt>', array('id' => '\d+', 'salt' => '\w+'))
+	->defaults(array(
+		'controller' => 'front',
+		'action'     => 'afmelden',
+	));
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
