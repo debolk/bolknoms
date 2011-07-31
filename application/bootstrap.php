@@ -96,11 +96,6 @@ Kohana::$log->attach(new Log_File(APPPATH.'logs'));
  */
 Kohana::$config->attach(new Config_File);
 
-// Load environment configuration
-if (Kohana::$environment === Kohana::TESTING) {
-    Kohana::$config->attach(new Config_File('testing'));
-}
-
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
