@@ -88,21 +88,4 @@ class Model_meal extends ORM
         $date = strtotime($date);
         return ($today <= $date);
     }
-
-    /**
-     * Checks whether a date is well-formed (yyyy-mm-dd) and valid
-     * @static
-     * @param string $date
-     * @return bool validity of the date
-     */
-    public static function valid_date($date)
-    {
-        // Invalid date by definition if you can't split it
-        $date_components = explode('-',$date);
-        if (count($date_components) <> 3 ) {
-            return false;
-        }
-        // Check date validity
-        return checkdate($date_components[1], $date_components[2], $date_components[0]);
-    }
 }
