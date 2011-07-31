@@ -2,6 +2,7 @@
     <table>
         <thead><tr>
             <th>Datum</th>
+            <th>Inschrijving sluit</th>
             <th>&nbsp;</th>
             <th>Aantal</th>
             <th>Inschrijvingen</th>
@@ -10,6 +11,7 @@
             <?php foreach ($meals as $meal): ?>
                 <tr>
                     <td class="date"><?php echo $meal; ?></td>
+                    <td class="date"><?php echo $meal->deadline(); ?> uur</td>
                     <td>
                         <a href="/administratie/verwijder/<?php echo $meal->id; ?>" class="confirmation-needed">
                             <img src="/images/cross.png" alt="Verwijderen"/>

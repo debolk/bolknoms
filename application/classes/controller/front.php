@@ -54,9 +54,14 @@ class Controller_Front extends Controller_Application
         $registration = ORM::factory('registration', array('id' => $id, 'salt' => $salt));
 
         if ($registration->loaded()) {
-            $date = (string)$registration->meal;
-            $registration->delete();
-            Flash::set(Flash::SUCCESS, "Je bent afgemeld voor de maaltijd op $date");
+            if ($registration->meal->open_for_registrations()) {
+                $date = (string)$registration->meal;
+                $registration->delete();
+                Flash::set(Flash::SUCCESS, "Je bent afgemeld voor de maaltijd op $date");
+            }
+            else {
+                Flash::set(Flash::ERROR, 'De inschrijving voor deze maaltijd is gesloten. Je kunt je niet meer afmelden.');
+            }
         }
         else {
             Flash::set(Flash::ERROR, 'Je bent niet afgemeld voor de maaltijd. Dat kan verschillende oorzaken hebben: <ul><li>je bent al eerder afgemeld</li><li>de beveiligingscode klopt niet (gebruik de link in je e-mail)</li></ul>');

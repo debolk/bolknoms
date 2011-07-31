@@ -30,17 +30,20 @@
                 <tr>
                     <th>&nbsp;</th>
                     <th>Datum</th>
+                    <th>Aanmelding sluit</th>
                     <th>Aanmeldingen</th>
                 </tr>
                 </thead>
                 <tbody>
-
                     <?php foreach ($meals as $meal): ?>
-                        <tr>
-                            <td><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
-                            <td class="date"><?php echo $meal; ?></td>
-                            <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
-                        </tr>
+                        <?php if ($meal->open_for_registrations()): ?>
+                            <tr>
+                                <td><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
+                                <td class="date"><?php echo $meal; ?></td>
+                                <td class="date"><?php echo $meal->deadline(); ?></td>
+                                <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
+                            </tr>
+                        <?php endif; ?>
                     <?php endforeach; ?>
 
                 </tbody>

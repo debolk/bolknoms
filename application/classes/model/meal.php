@@ -10,11 +10,15 @@ class Model_meal extends ORM
      */
     public function rules()
     {
-        return array('date' => array(
+        return array('date'   => array(
                                    array('not_empty'),
                                    array('date'),
                                    array(array($this,'free_day')),
                                    array('Model_Meal::today_or_later')
+                               ),
+                     'locked' => array(
+                                   array('not_empty'),
+                                   array(array($this, 'valid_time'))
                                )
                 );
     }
@@ -56,6 +60,11 @@ class Model_meal extends ORM
         return strftime('%A %d %B %Y', strtotime($this->date));
     }
 
+    public function deadline()
+    {
+        return strftime('%H:%M',strtotime($this->locked)).' uur';
+    }
+
     /**
      * Returns whether the given date is still free
      * @static
@@ -77,6 +86,16 @@ class Model_meal extends ORM
     }
 
     /**
+     * Checks whether this is a valid time
+     * @param $time
+     * @return bool
+     */
+    public function valid_time($time)
+    {
+        return (strtotime($time) !== FALSE);
+    }
+
+    /**
      * Checks whether a date is in the future
      * @static
      * @param string $date
@@ -87,5 +106,15 @@ class Model_meal extends ORM
         $today = strtotime(date('Y-m-d'));
         $date = strtotime($date);
         return ($today <= $date);
+    }
+
+    /**
+     * Whether the meal is open for registrations
+     * @return bool
+     */
+    public function open_for_registrations()
+    {
+        $closing_moment = strtotime($this->date.' '.$this->locked);
+        return ($closing_moment > time());
     }
 }

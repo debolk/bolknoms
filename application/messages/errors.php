@@ -20,4 +20,8 @@ return array(
   'meals' => array(
                   'not_empty' => 'Je moet minstens één maaltijd selecteren'
                 ),
+  'locked' => array(
+                  'not_empty'  => 'Je moet een tijd invullen waarop de inschrijving sluit',
+                  'valid_time' => 'Je moet een geldige tijd invullen waarop de inschrijving sluit (HH:MM)'
+                ),
 );

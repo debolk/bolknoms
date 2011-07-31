@@ -29,7 +29,7 @@ class Controller_Administratie extends Controller_Application
         $this->template->content->meal = $meal = ORM::factory('meal');
 
         if ($_POST) {
-            $meal->values($_POST, array('date'));
+            $meal->values($_POST, array('date','locked'));
             try {
                 $meal->save();
                 Flash::set(Flash::SUCCESS, 'Maaltijd toegevoegd');
