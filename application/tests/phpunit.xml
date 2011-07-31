@@ -4,4 +4,7 @@
             <directory>./</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <server name="KOHANA_ENV" value="testing"/>
+    </php>
 </phpunit>
