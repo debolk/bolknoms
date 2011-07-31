@@ -2,7 +2,7 @@ var disabled_days = null;
 
 $(document).ready(function() {
     // Only execute loading days on the page that's needed
-    if ($('body.administratie.nieuwe_maaltijd').size > 0) {
+    if ($('body.administratie.nieuwe_maaltijd').size() > 0) {
         // Load disabled days
         get_disabled_days();
         console.log(disabled_days);
