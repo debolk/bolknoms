@@ -145,6 +145,7 @@ a:hover, a:active {
 input[type="submit"] {
     float: left;
     margin-left: 150px;
+    margin-right: 5px;
 }
 
 /*
