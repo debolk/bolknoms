@@ -43,6 +43,31 @@ class Controller_Administratie extends Controller_Application
     }
 
     /**
+     * Edits a meal
+     * @throws HTTP_Exception_404
+     * @return void
+     */
+    public function action_bewerk()
+    {
+        $this->template->content->meal = $meal = ORM::factory('meal',$this->request->param('id'));
+        if (! $meal->loaded()) {
+            throw new HTTP_Exception_404;
+        }
+
+        if ($_POST) {
+            $meal->values($_POST, array('date','locked'));
+            try {
+                $meal->save();
+                Flash::set(Flash::SUCCESS, 'Maaltijd geüpdate');
+                $this->request->redirect(Route::url('default',array('controller' => 'administratie')));
+            }
+            catch (ORM_Validation_Exception $e) {
+                // Nothing here, errors are retrieved in the view
+            }
+        }
+    }
+
+    /**
      * Removes a meal
      * @return void
      */
@@ -79,10 +104,14 @@ class Controller_Administratie extends Controller_Application
      */
     public function action_gevulde_dagen()
     {
+        $id = Arr::get($_GET, 'meal_id');
+
         $meals = ORM::factory('meal')->upcoming()->find_all();
         $dates = array();
         foreach ($meals as $meal) {
-            $dates[] = $meal->date;
+            if ($id !== $meal->id) {
+                $dates[] = $meal->date;
+            }
         }
         header('Content-Type: application/json');
         print(json_encode($dates));

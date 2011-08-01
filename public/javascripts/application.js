@@ -2,7 +2,7 @@ var disabled_days = null;
 
 $(document).ready(function() {
     // Only execute loading days on the page that's needed
-    if ($('body.administratie.nieuwe_maaltijd').size() > 0) {
+    if ($('body.administratie.nieuwe_maaltijd, body.administratie.bewerk').size() > 0) {
         // Load disabled days
         get_disabled_days();
         console.log(disabled_days);
@@ -33,8 +33,17 @@ function confirm_intent() {
  * @return void
  */
 function get_disabled_days() {
+    // Exclude current day
+    var meal_id = null;
+    if ($('form').size() > 0) {
+        meal_id = $('form').attr('data-id');
+    }
+
     $.ajax({
         url: '/administratie/gevulde_dagen',
+        data: {
+            meal_id: meal_id
+        },
         success: function(result) {
             disabled_days = result
         },

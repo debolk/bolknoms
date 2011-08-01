@@ -3,7 +3,7 @@
         <thead><tr>
             <th>Datum</th>
             <th>Inschrijving sluit</th>
-            <th>&nbsp;</th>
+            <th>Bewerken</th>
             <th>Aantal</th>
             <th>Inschrijvingen</th>
         </tr></thead>
@@ -13,6 +13,9 @@
                     <td class="date"><?php echo $meal; ?></td>
                     <td class="date"><?php echo $meal->deadline(); ?></td>
                     <td>
+                        <a href="/administratie/bewerk/<?php echo $meal->id; ?>">
+                            <img src="/images/pencil.png" alt="Bewerken"/>
+                        </a>
                         <a href="/administratie/verwijder/<?php echo $meal->id; ?>" class="confirmation-needed">
                             <img src="/images/cross.png" alt="Verwijderen"/>
                         </a>
