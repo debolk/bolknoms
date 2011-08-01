@@ -11,7 +11,7 @@
             <?php foreach ($meals as $meal): ?>
                 <tr>
                     <td class="date"><?php echo $meal; ?></td>
-                    <td class="date"><?php echo $meal->deadline(); ?> uur</td>
+                    <td class="date"><?php echo $meal->deadline(); ?></td>
                     <td>
                         <a href="/administratie/verwijder/<?php echo $meal->id; ?>" class="confirmation-needed">
                             <img src="/images/cross.png" alt="Verwijderen"/>
