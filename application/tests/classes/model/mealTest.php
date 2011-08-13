@@ -20,7 +20,10 @@ class mealTest extends Kohana_UnitTest_TestCase
 
     public function testSavesRegistrations()
     {
-        $this->fail('unimplemented test');
+        $meal = ORM::factory('meal')->values(array('date' => strftime('%Y-%m-%d'), 'locked' => '14:00'))->save();
+        $r1 = ORM::factory('registration')->values(array('name' => 'Jakob','email' => 'jpabuis@gmail.com', 'salt' => '123', 'meal_id' => $meal->pk()))->save();
+        $r2 = ORM::factory('registration')->values(array('name' => 'Ruben','email' => 'ruben_m@gmail.com', 'salt' => '123', 'meal_id' => $meal->pk()))->save();
+        $this->assertEquals(2, $meal->registrations->count_all());
     }
 
     /**
@@ -58,6 +61,7 @@ class mealTest extends Kohana_UnitTest_TestCase
 
     public function testToStringPrintsDate()
     {
-        $this->fail('unimplemented test');
+        $meal = ORM::factory('meal',array('date' => '2011-06-05'));
+        $this->assertEquals('Zondag 5 juni 2011', (string)$meal);
     }
 }
