@@ -24,15 +24,15 @@ $db = '';
 switch (Kohana::$environment)
 {
     case Kohana::DEVELOPMENT:
-        $db = 'development'; break;
+        $db = 'bolknoms_development'; break;
     case Kohana::TESTING:
-        $db = 'testing'; break;
+        $db = 'bolknoms_testing'; break;
     case Kohana::STAGING:
-        $db = 'staging'; break;
+        $db = 'bolknoms_staging'; break;
     default:
-        $db = 'production';
+        $db = 'inschrijven';
 }
-$configuration['default']['connection']['database'] = 'bolknoms_'.$db;
+$configuration['default']['connection']['database'] = $db;
 
 // Send configuration
 return $configuration;
