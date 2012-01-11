@@ -65,7 +65,7 @@
 </p>
 
 <p class="navigation">
-    <a href="administratie">
+    <a href="/administratie">
         <img src="/images/key.png" alt="" width="16" height="16" />
         Administratie
     </a>
