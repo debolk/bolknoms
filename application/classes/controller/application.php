@@ -42,7 +42,7 @@ abstract class Controller_Application extends Controller_Template
         }
         else {
             // If a credentials are supplied, attempt to authenticate
-            if ($_SERVER['PHP_AUTH_USER'] === 'bestuur' && $_SERVER['PHP_AUTH_PW'] === '52bvo') {
+            if ($_SERVER['PHP_AUTH_USER'] === 'bestuur' && $_SERVER['PHP_AUTH_PW'] === 'zimtcdfkbm') {
                 return;
             }
             else {
