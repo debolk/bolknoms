@@ -23,6 +23,10 @@ class Model_meal extends ORM
                 );
     }
 
+    /**
+     * Initializes the model, setting the default ordering to date
+     * @param int $id
+     */
     public function __construct($id = null)
     {
         parent::__construct($id);
@@ -60,6 +64,10 @@ class Model_meal extends ORM
         return strftime('%A %d %B %Y', strtotime($this->date));
     }
 
+    /**
+     * Prints the deadline of this meal in a user-friendly format
+     * @return string
+     */
     public function deadline()
     {
         return strftime('%H:%M',strtotime($this->locked)).' uur';
@@ -109,7 +117,7 @@ class Model_meal extends ORM
     }
 
     /**
-     * Whether the meal is open for registrations
+     * Returns whether the meal is open for registrations
      * @return bool
      */
     public function open_for_registrations()

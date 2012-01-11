@@ -2,6 +2,9 @@
 
 class Controller_Administratie extends Controller_Application
 {
+    /**
+     * Initializes the controller, forcing all users to authenticate before touching anything
+     */
     public function before()
     {
         parent::before();
@@ -100,6 +103,7 @@ class Controller_Administratie extends Controller_Application
 
     /**
      * Prints an array (json-encoded) of all upcoming dates with meals planned
+     * used for the date-picker to hide all dates already filled
      * @return void
      */
     public function action_gevulde_dagen()

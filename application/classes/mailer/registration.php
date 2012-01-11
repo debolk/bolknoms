@@ -3,7 +3,7 @@
 class Mailer_Registration
 {
     /**
-     * Sends a confirmation email for registrations
+     * Sends a confirmation email for a given set of registrations
      * @param array(Model_Registration) $registrations
      * @return void
      */

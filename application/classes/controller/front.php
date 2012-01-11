@@ -83,6 +83,11 @@ class Controller_Front extends Controller_Application
         return $validation;
     }
 
+    /**
+     * Prints the errors of a validation object in a user-friendly format
+     * @param Validation $validation
+     * @return string
+     */
     private function errors(Validation $validation)
     {
         $string = '';

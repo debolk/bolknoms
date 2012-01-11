@@ -4,6 +4,10 @@ class Model_Registration extends ORM
 {
     protected $_belongs_to = array('meal' => array());
 
+    /**
+     * Initializes the model, setting the default ordering to name
+     * @param int $id
+     */
     public function __construct($id = null)
     {
         parent::__construct($id);
@@ -28,6 +32,11 @@ class Model_Registration extends ORM
         );
     }
 
+    /**
+     * Generate a salt, then save the model
+     * @param null|Validation $validation
+     * @return ORM
+     */
     public function save(Validation $validation = null)
     {
         $this->salt = $this->generate_salt();
@@ -43,6 +52,10 @@ class Model_Registration extends ORM
         return $this->name;
     }
 
+    /**
+     * Generates a random string of 10 characters in the a-z range, used for securing cancellation requests
+     * @return string
+     */
     private function generate_salt()
     {
         return substr(str_shuffle(str_repeat('abcdefghijklmnopqrstuvwxyz',10)),0,10);

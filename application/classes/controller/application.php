@@ -2,6 +2,10 @@
 
 abstract class Controller_Application extends Controller_Template
 {
+    /**
+     * The template to use by default for all views (can be overridden if needed)
+     * @var string
+     */
     public $template = 'layouts/application';
 
     /**
