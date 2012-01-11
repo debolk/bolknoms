@@ -16,7 +16,7 @@ class Mailer_Registration
                             ));
         $to = "$name <$email>";
 
-        $headers  = 'From: Bolknoms <no-reply@bolk.nl>'.PHP_EOL;
+        $headers  = 'From: Bolknoms <no-reply@debolk.nl>'.PHP_EOL;
         $headers .= 'Reply-To: bestuur@nieuwedelft.nl'.PHP_EOL;
         $headers .= 'Content-type: text/html'.PHP_EOL;
 
