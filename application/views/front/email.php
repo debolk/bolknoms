@@ -15,6 +15,5 @@
 <p>
     Met vriendelijke groet,<br />
     Ruben Maessen<br />
-    Commissaris Maaltijden<br />
-    De Bolk (D.S.V. Nieuwe Delft)
+    Commissaris Maaltijden, D.S.V. Nieuwe Delft (De Bolk)
 </p>
