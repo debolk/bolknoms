@@ -77,7 +77,7 @@ class Controller_Front extends Controller_Application
     private function valideer_aanmelding($data)
     {
         $validation = Validation::factory($data);
-        $validation->rules('name', array(array('not_empty')));
+        $validation->rules('name', array(array('not_empty'),array('alpha')));
         $validation->rules('email', array(array('not_empty'), array('email')));
         $validation->rules('meals', array(array('not_empty')));
         return $validation;
