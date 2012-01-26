@@ -86,6 +86,18 @@ class Controller_Administratie extends Controller_Application
     }
 
     /**
+     * Creates a registration
+     * @return void
+     */
+    public function action_aanmelden()
+    {
+        $registration = ORM::factory('registration')->values($_POST,array('name'));
+        $registration->save();
+        echo 'success';
+        exit;
+    }
+
+    /**
      * Removes a registration
      * @return void
      */

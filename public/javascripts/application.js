@@ -19,6 +19,8 @@ $(document).ready(function() {
     }
 
     $('.confirmation-needed').click(confirm_intent);
+
+    $('.new_registration').blur(add_registration);
 });
 
 /**
@@ -26,6 +28,33 @@ $(document).ready(function() {
  */
 function confirm_intent() {
     return confirm('Are you sure?');
+}
+
+/**
+ * Submits a registration to the server
+ */
+function add_registration()
+{
+    // Get the value, ignoring whitespace
+    var name = $(this).val().trim();
+
+    if (name !== '') {
+        // Update the server
+        $.post('/administratie/aanmelden',{
+                name: name
+            },
+            function(result){
+                if (result == 'true') {
+                    $('')
+                }
+                else {
+                    alert('Foutmelding: onbekende fout. Probeer opnieuw');
+                    window.reload();
+                }
+            });
+    }
+    // Clear the field
+    $(this).val('');
 }
 
 /**

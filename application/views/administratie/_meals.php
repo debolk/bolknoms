@@ -29,6 +29,7 @@
                             </a>
                             <br />
                         <?php endforeach; ?>
+                        <?php echo Form::input('name', '', array('class' => 'new_registration')); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
