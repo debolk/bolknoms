@@ -20,4 +20,6 @@
 		<?php endforeach; ?>
 		<?php echo Form::input('name', '', array('class' => 'new_registration')); ?>
 	</td>
+	<td>
+		<a href="administratie/checklist/<?php echo $meal->id; ?>">Checklist</a>
 </tr>

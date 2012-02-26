@@ -151,4 +151,15 @@ class Controller_Administratie extends Controller_Application
         print(json_encode($dates));
         exit;
     }
+    
+    public function action_checklist()
+    {
+        $meal_id = $this->request->param('id');
+        $meal = ORM::factory('meal',$meal_id);
+        if (!$meal->loaded()) {
+            throw new HTTP_Exception_404("Maaltijd niet gevonden");
+        }
+        echo View::factory('administratie/checklist',array('meal' => $meal));
+        exit;
+    }
 }

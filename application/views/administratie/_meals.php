@@ -6,6 +6,7 @@
             <th>Bewerken</th>
             <th>Aantal</th>
             <th>Inschrijvingen</th>
+            <th>Checklist</th>
         </tr></thead>
         <tbody>
             <?php foreach ($meals as $meal): ?>

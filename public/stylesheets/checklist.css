@@ -1,0 +1,39 @@
+body {
+    font-family: Verdana, Helvetica, Arial;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    width: 50%;
+    float: left;
+    margin-left: 0;
+}
+
+input {
+    height: 32px;
+    vertical-align: middle;
+}
+
+input[type="checkbox"] {
+    width: 32px;
+}
+
+table {
+    border: 1px solid black;
+}
+
+th, td {
+    text-align: left;
+}
+
+th {
+    width: 200px;
+}
+
+td {
+    width: 400px;
+}
