@@ -91,9 +91,27 @@ class Controller_Administratie extends Controller_Application
      */
     public function action_aanmelden()
     {
-        $registration = ORM::factory('registration')->values($_POST,array('name'));
-        $registration->save();
-        echo 'success';
+        // Build an array of the data to store
+        $data = array(
+            'meal_id' => (int)$_POST['meal_id'],
+            'name' => (string)$_POST['name']
+        );
+        // Find the meal we're changing
+        $meal = ORM::factory('meal',$data['meal_id']);
+        if (! $meal->loaded()) {
+            throw new HTTP_Exception_404;
+        }
+
+        // Create a new registration
+        $registration = ORM::factory('registration')->values($data,array('meal_id','name'));
+        try {
+            $registration->save();
+            echo View::factory('administratie/_meal',array('meal' => $meal));
+        }
+        catch (ORM_Validation_Exception $e) {
+            echo 'error';
+        }
+        //FIXME Manual override of template engine
         exit;
     }
 

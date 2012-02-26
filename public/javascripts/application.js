@@ -18,9 +18,9 @@ $(document).ready(function() {
         });
     }
 
-    $('.confirmation-needed').click(confirm_intent);
+    $('.confirmation-needed').live("click",confirm_intent);
 
-    $('.new_registration').blur(add_registration);
+    $('.new_registration').live("blur",add_registration);
 });
 
 /**
@@ -36,22 +36,19 @@ function confirm_intent() {
 function add_registration()
 {
     // Get the value, ignoring whitespace
+    var meal_id = $(this).parents('tr').attr('data-id');
     var name = $(this).val().trim();
 
     if (name !== '') {
         // Update the server
         $.post('/administratie/aanmelden',{
-                name: name
+                name: name,
+                meal_id: meal_id
             },
             function(result){
-                if (result == 'true') {
-                    $('')
-                }
-                else {
-                    alert('Foutmelding: onbekende fout. Probeer opnieuw');
-                    window.reload();
-                }
-            });
+                // Update meal
+                $('tr[data-id="'+meal_id+'"]').replaceWith(result);
+            },'html');
     }
     // Clear the field
     $(this).val('');
