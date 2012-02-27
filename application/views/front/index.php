@@ -1,8 +1,8 @@
 <h1>BolkNoms</h1>
 <p class="introduction">
-    Met deze extreem hippe tool kun je je aanmelden voor maaltijden op De Bolk.
+    Met deze (extreem hippe) tool kun je je aanmelden voor maaltijden op De Bolk.
     Van 27&nbsp;februari&nbsp;2012 tot en met 19&nbsp;april&nbsp;2012 draaien we een proef voor het 
-    verplicht inschrijven voor de eettafel. Op deze dagen kun je niet mee&euml;ten als
+    verplicht inschrijven voor de eettafel. Op deze dagen kun je niet mee-eten als
     je je niet aanmeldt via het onderstaande formulier.
 </p>
 
