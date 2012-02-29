@@ -21,7 +21,14 @@ $(document).ready(function() {
     $('.confirmation-needed').live("click",confirm_intent);
 
     $('.new_registration').live("blur",add_registration);
+    
+    $('#all-meals').change(select_all_meals);
 });
+
+function select_all_meals()
+{
+    $('input[type="checkbox"]').attr('checked',($(this).attr('checked')=='checked'));
+}
 
 /**
  * Confirms the intent of the user

@@ -29,7 +29,7 @@
             <table>
                 <thead>
                 <tr>
-                    <th>&nbsp;</th>
+                    <th><?php echo Form::checkbox('meals[]', null, null, array('id' => 'all-meals')); ?></th>
                     <th>Datum</th>
                     <th>Aanmelding sluit</th>
                     <th>Aanmeldingen</th>
