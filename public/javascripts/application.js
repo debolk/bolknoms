@@ -23,7 +23,23 @@ $(document).ready(function() {
     $('.new_registration').live("blur",add_registration);
     
     $('#all-meals').change(select_all_meals);
+    
+    $('.toggle-names').click(toggle_names);
 });
+
+function toggle_names()
+{
+    $('.names',$(this).parents('td')).toggle();
+    if ($(this).html() === 'Hide names') {
+        $(this).html('Show names');    
+    }
+    else {
+        $(this).html('Hide names');
+    }
+        
+    
+    return false;
+}
 
 function select_all_meals()
 {

@@ -206,3 +206,7 @@ tbody tr:nth-child(2n-1) {
 h1.error {
     color: red;
 }
+
+.names {
+    display: none;
+}
