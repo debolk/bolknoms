@@ -12,7 +12,7 @@ return array(
                 ),
   'name' => array(
                   'not_empty' => 'Je moet je naam invullen',
-                  'alpha' => 'Je naam mag alleen uit letters bestaan'
+                  'regex' => 'Je naam mag alleen uit letters (a-z) en spaties bestaan'
                 ),
   'email' => array(
                   'not_empty' => 'Je moet je e-mailadres invullen'
