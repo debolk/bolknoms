@@ -25,4 +25,5 @@
 	</td>
 	<td>
 		<a href="administratie/checklist/<?php echo $meal->id; ?>">Checklist</a>
+	</td>
 </tr>
