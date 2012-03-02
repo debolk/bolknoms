@@ -25,6 +25,10 @@ $(document).ready(function() {
     $('input[name="all-meals"]').change(select_all_meals);
     
     $('.toggle-names').click(toggle_names);
+    
+    if ($('body').hasClass('administratie') && $('body').hasClass('checklist')) {
+        window.print();
+    }
 });
 
 function toggle_names()

@@ -4,6 +4,9 @@
         <meta charset="utf-8"/>
         <title>Checklist eters</title>
         <link rel="stylesheet" href="/stylesheets/checklist.css" type="text/css"/>
+        
+        <script type="text/javascript" src="/javascripts/jquery.js"></script>
+        <script type="text/javascript" src="/javascripts/application.js"></script>
     </head>
     <body class="<?php echo Request::$current->controller(); ?> <?php echo Request::$current->action(); ?>">
         <h1>Checklist eters</h1>

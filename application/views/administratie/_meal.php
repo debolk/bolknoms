@@ -16,7 +16,7 @@
 		</div>
 	</td>
 	<td>
-		<a href="administratie/checklist/<?php echo $meal->id; ?>">Checklist</a>
+		<a href="administratie/checklist/<?php echo $meal->id; ?>">Print</a>
 	</td>
 	<td>
 		<a href="/administratie/bewerk/<?php echo $meal->id; ?>">
