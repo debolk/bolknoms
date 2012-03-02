@@ -3,10 +3,10 @@
         <thead><tr>
             <th>Datum</th>
             <th>Deadline</th>
-            <th>&nbsp;</th>
             <th>#</th>
             <th>Namen</th>
             <th>Checklist</th>
+            <th>&nbsp;</th>
         </tr></thead>
         <tbody>
             <?php foreach ($meals as $meal): ?>
