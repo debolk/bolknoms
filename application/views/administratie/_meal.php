@@ -11,7 +11,7 @@
 	</td>
 	<td class="number"><?php echo $meal->registrations->count_all(); ?></td>
 	<td class="registrations">
-		<a href="#" class="toggle-names">Show names</a><br />
+		<a href="#" class="toggle-names">Toon namen</a><br />
 		<div class="names">
 			<?php foreach ($meal->registrations->find_all() as $registration): ?>
 				<?php echo $registration; ?>

@@ -30,11 +30,11 @@ $(document).ready(function() {
 function toggle_names()
 {
     $('.names',$(this).parents('td')).toggle();
-    if ($(this).html() === 'Hide names') {
-        $(this).html('Show names');    
+    if ($(this).html() === 'Verberg namen') {
+        $(this).html('Toon namen');    
     }
     else {
-        $(this).html('Hide names');
+        $(this).html('Verberg namen');
     }
         
     
