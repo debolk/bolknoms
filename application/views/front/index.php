@@ -3,7 +3,7 @@
     Met deze (extreem hippe) tool kun je je aanmelden voor maaltijden op De Bolk.
     Van 27&nbsp;februari&nbsp;2012 tot en met 19&nbsp;april&nbsp;2012 draaien we een proef voor het 
     verplicht inschrijven voor de eettafel. Op deze dagen kun je niet mee-eten als
-    je je niet aanmeldt via het onderstaande formulier.
+    je je niet aanmeldt via het onderstaande formulier. <strong>De deadline voor aanmelding is 15:00 uur.</strong>
 </p>
 
 <?php echo Flash::display_messages(); ?>
@@ -31,7 +31,6 @@
                 <tr>
                     <th><input type="checkbox" name="all-meals"></th>
                     <th>Datum</th>
-                    <th>Aanmelding sluit</th>
                     <th>Aanmeldingen</th>
                 </tr>
                 </thead>
@@ -41,7 +40,6 @@
                             <tr>
                                 <td><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
                                 <td class="date"><?php echo $meal; ?></td>
-                                <td class="date"><?php echo $meal->deadline(); ?></td>
                                 <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
                             </tr>
                         <?php endif; ?>
