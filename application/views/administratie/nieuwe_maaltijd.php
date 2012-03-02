@@ -12,7 +12,7 @@
        <?php if (Arr::get($_POST,'locked')): ?>
             <?php echo Form::input('locked',Arr::get($_POST,'locked'),array('id' => 'locked')); ?>
         <?php else: ?>
-            <?php echo Form::input('locked','14:00',array('id' => 'locked')); ?>
+            <?php echo Form::input('locked','15:00',array('id' => 'locked')); ?>
         <?php endif; ?>
     </p>
     <p>
