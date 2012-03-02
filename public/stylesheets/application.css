@@ -159,6 +159,10 @@ th {
     text-align: left;
 }
 
+td {
+    padding: 0 5px 0 5px;
+}
+
 td.number { text-align: center; }
 td.date   { text-align: right; }
 

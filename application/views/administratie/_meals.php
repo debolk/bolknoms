@@ -2,10 +2,10 @@
     <table>
         <thead><tr>
             <th>Datum</th>
-            <th>Inschrijving sluit</th>
-            <th>Bewerken</th>
-            <th>Aantal</th>
-            <th>Inschrijvingen</th>
+            <th>Deadline</th>
+            <th>&nbsp;</th>
+            <th>#</th>
+            <th>Namen</th>
             <th>Checklist</th>
         </tr></thead>
         <tbody>
