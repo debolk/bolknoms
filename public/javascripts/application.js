@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     $('.new_registration').live("blur",add_registration);
     
-    $('#all-meals').change(select_all_meals);
+    $('input[name="all-meals"]').change(select_all_meals);
     
     $('.toggle-names').click(toggle_names);
 });
