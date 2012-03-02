@@ -152,6 +152,10 @@ class Controller_Administratie extends Controller_Application
         exit;
     }
     
+    /**
+     * Prints a checklist for crossing off visiting users
+     * not intended to be viewed, only printed
+     */
     public function action_checklist()
     {
         $meal_id = $this->request->param('id');
