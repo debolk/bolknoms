@@ -13,6 +13,4 @@
 <h2>Afgelopen maaltijden</h2>
 <?php echo View::factory('administratie/_meals',array('meals' => $previous_meals)); ?>
 
-<p class="navigation">
-    <a href="/inschrijven">&lsaquo; Terug naar inschrijven</a>
-</p>
+<?php echo View::factory('layouts/_navigation'); ?>

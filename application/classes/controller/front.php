@@ -8,14 +8,56 @@ class Controller_Front extends Controller_Application
      */
     public function action_index()
     {
+        $this->template->content->upcoming_meal = ORM::factory('meal')->upcoming()->find();
+    }
+    
+    /**
+     * Displays a form with all available meals
+     * @return void
+     */
+    public function action_uitgebreidinschrijven()
+    {
         $this->template->content->meals = ORM::factory('meal')->upcoming()->find_all();
+    }
+    
+    /**
+     * Frontpage of the website and the quick form
+     * @return void
+     */
+    public function action_aanmelden()
+    {
+        $validation = $this->valideer_aanmelding($_POST);
+        if ($validation->check()) {
+            // Escape data
+            $name = HTML::chars($_POST['name']);
+            // Find the first meal
+            $meal = ORM::factory('meal')->upcoming()->find();
+            if ($meal->loaded()) {
+                $reg = ORM::factory('registration');
+                $reg->name = $name;
+                $reg->meal = $meal;
+                try {
+                    $reg->save();    
+                }
+                catch (ORM_Validation_Exception $e) {
+                    // Do nothing; errors are retrieved in view
+                }
+                // Update user
+                Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd. Je kunt vanavond mee-eten.');
+            }
+            else {
+                throw new HTTP_Exception_404('Maaltijd niet gevonden');
+            }
+        }
+        // Redirect back to form
+        $this->request->redirect('/');
     }
 
     /**
      * Adds a new set of registrations with a specified name
      * @return void
      */
-    public function action_aanmelden()
+    public function action_uitgebreidaanmelden()
     {
         $validation = $this->valideer_aanmelding($_POST);
         if ($validation->check()) {
@@ -68,9 +110,9 @@ class Controller_Front extends Controller_Application
         }
         $this->request->redirect('/');
     }
-
+    
     /**
-     * Validates a registration attempt
+     * Validates a quick registration attempt
      * @param array $data
      * @return Validation
      */
@@ -78,6 +120,17 @@ class Controller_Front extends Controller_Application
     {
         $validation = Validation::factory($data);
         $validation->rules('name', array(array('not_empty'),array('regex',array(':value','/[:alpha,:blank]+/'))));
+        return $validation;
+    }
+
+    /**
+     * Validates a extensive registration attempt
+     * @param array $data
+     * @return Validation
+     */
+    private function valideer_uitgebreideaanmelding($data)
+    {
+        $validation = $this->valideer_aanmelding($data);
         $validation->rules('email', array(array('not_empty'), array('email')));
         $validation->rules('meals', array(array('not_empty')));
         return $validation;

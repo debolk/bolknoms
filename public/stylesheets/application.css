@@ -4,6 +4,18 @@ body {
     font-size: 14px;
 }
 
+h2 {
+    margin-bottom: 0;
+}
+
+p, ul, ol {
+    margin-top: 0;
+}
+
+.navigation {
+    margin-top: 1em;
+}
+
 a img {
     border: none;
 }

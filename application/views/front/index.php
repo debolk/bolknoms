@@ -1,71 +1,41 @@
-<h1>BolkNoms</h1>
-<p class="introduction">
-    Met deze (extreem hippe) tool kun je je aanmelden voor maaltijden op De Bolk.
-    Van 27&nbsp;februari&nbsp;2012 tot en met 19&nbsp;april&nbsp;2012 draaien we een proef voor het 
-    verplicht inschrijven voor de eettafel. Op deze dagen kun je niet mee-eten als
-    je je niet aanmeldt via het onderstaande formulier. <strong>De deadline voor aanmelding is 15:00 uur.</strong>
-</p>
+<?php echo View::factory('front/_introductie'); ?>
 
-<?php echo Flash::display_messages(); ?>
-
-<?php if (isset($validation)): ?>
-    <?php echo Helper_Form::error_messages_for($validation); ?>
-<?php endif; ?>
-
-<h2>Aanmelden</h2>
-<form action="/aanmelden" method="post" accept-charset="utf-8" class="clearfix">
+<h2>Snel aanmelden</h2>
+<div class="section">
     <p>
-        <label for="name" class="label">Naam</label>
-        <input type="text" name="name" id="name"/>
+        Met snel aanmelden, meld je je direct aan voor de maaltijd van vandaag. 
+        Je krijgt geen e-mail ter bevestiging en je kunt je niet meer afmelden.
+        Je kunt ook gebruik maken van <a href="/uitgebreid-inschrijven">uitgebreid aanmelden</a>
+        om je makkelijk aan te melden voor meerdere dagen tegelijk. 
     </p>
-    <p>
-        <label for="email" class="label">E-mail</label>
-        <input type="text" name="email" id="email"/>
-    </p>
+    
+    <?php echo Flash::display_messages(); ?>
 
-    <p>
-        <span class="label">Eettafels</span>
-        <?php if (count($meals) > 0): ?>
-            <table>
-                <thead>
-                <tr>
-                    <th><input type="checkbox" name="all-meals"></th>
-                    <th>Datum</th>
-                    <th>Aanmeldingen</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($meals as $meal): ?>
-                        <?php if ($meal->open_for_registrations()): ?>
-                            <tr>
-                                <td><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
-                                <td class="date"><?php echo $meal; ?></td>
-                                <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
-                            </tr>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+    <?php if (isset($validation)): ?>
+        <?php echo Helper_Form::error_messages_for($validation); ?>
+    <?php endif; ?>
 
-                </tbody>
-            </table>
+    <form action="/aanmelden" method="post" accept-charset="utf-8" class="clearfix">
+        <p>
+            <label for="date" class="label">Volgende eettafel</label>
+            <?php echo $upcoming_meal; ?>
+        </p>
+        <?php if ($upcoming_meal->open_for_registrations()): ?>
+            <p>
+                <label for="name" class="label">Naam</label>
+                <input type="text" name="name" value="" />
+            </p>    
+            <p>
+                <input type="submit" value="Aanmelden"/>
+            </p>    
         <?php else: ?>
-            <span class="zero">Er zijn geen maaltijden beschikbaar om je voor aan te melden.</span>
+            <p class="notification warning">
+                Sorry, de deadline is verstreken. Je kunt je niet meer aanmelden voor de maaltijd
+                van vandaag. Je kunt je nog wel <a href="/uitgebreid-inschrijven">aanmelden voor een andere eettafel</a>.
+            </p>
         <?php endif; ?>
-    </p>
-    <p>
-        <input type="submit" id="submit" value="Aanmelden"/>
-    </p>
-</form>
+    </form>    
+</div>
 
-<h2>Afmelden</h2>
-<p>
-    Na je aanmelding ontvang je een e-mail van no-reply@debolk.nl ter bevestiging. Deze e-mail bevat een link om je uit te schrijven.
-    Let op: als de inschrijving is gesloten, kun je je ook niet meer afmelden voor een maaltijd.
-    Neem bij problemen contact op met het bestuur via het bekende e-mailadres of 015 212 60 12.
-</p>
-
-<p class="navigation">
-    <a href="/administratie">
-        <img src="/images/key.png" alt="" width="16" height="16" />
-        Administratie
-    </a>
-</p>
+<?php echo View::factory('front/_spelregels'); ?>
+<?php echo View::factory('layouts/_navigation'); ?>

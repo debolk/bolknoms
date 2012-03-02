@@ -119,6 +119,16 @@ Route::set('inschrijven', 'inschrijven')
 		'controller' => 'front',
 		'action'     => 'index',
 	));
+Route::set('uitgebreid-inschrijven', 'uitgebreid-inschrijven')
+	->defaults(array(
+		'controller' => 'front',
+		'action'     => 'uitgebreidinschrijven',
+	));
+Route::set('uitgebreidaanmelden', 'uitgebreidaanmelden')
+	->defaults(array(
+		'controller' => 'front',
+		'action'     => 'uitgebreidaanmelden',
+	));
 Route::set('aanmelden', 'aanmelden')
 	->defaults(array(
 		'controller' => 'front',

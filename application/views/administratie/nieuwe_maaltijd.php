@@ -20,6 +20,4 @@
     </p>
 </form>
 
-<p class="navigation">
-    <a href="/administratie">&lsaquo; Terug naar administratie</a>
-</p>
+<?php echo View::factory('layouts/_navigation'); ?>

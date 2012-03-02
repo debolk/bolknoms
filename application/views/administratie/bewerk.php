@@ -16,4 +16,5 @@
         of <?php echo HTML::anchor(Route::url('default',array('controller' => 'administratie')),'niet opslaan'); ?>
     </p>
 </form>
-        
+
+<?php echo View::factory('layouts/_navigation'); ?>
