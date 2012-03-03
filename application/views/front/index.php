@@ -3,7 +3,7 @@
 <h2>Snel aanmelden</h2>
 <div class="section">
     <p>
-        Met snel aanmelden, meld je je direct aan voor de maaltijd van vandaag. 
+        Meld je je direct aan voor de maaltijd van vandaag. 
         Je krijgt geen e-mail ter bevestiging en je kunt je niet meer afmelden.
         Je kunt ook gebruik maken van <a href="/uitgebreid-inschrijven">uitgebreid aanmelden</a>
         om je makkelijk aan te melden voor meerdere dagen tegelijk. 
