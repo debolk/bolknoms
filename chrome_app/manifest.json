@@ -1,0 +1,15 @@
+{
+  "name": "bolknoms",
+  "version": "0.4.1",
+  "icons": { "128": "icon_128.png" },
+  "app": {
+    "urls": [
+      "http://inschrijven.bolkhuis.nl/",
+      "http://inschrijven.i.bolkhuis.nl/"
+    ],
+    "launch": {
+      "web_url": "http://inschrijven.bolkhuis.nl/"
+    }
+  },
+  "manifest_version": 2
+}
