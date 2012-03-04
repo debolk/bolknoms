@@ -4,6 +4,11 @@ body {
     font-size: 14px;
 }
 
+.logo {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
 h2 {
     margin-bottom: 0;
 }
@@ -136,6 +141,7 @@ a:hover, a:active {
 }
 
 .introduction {
+    margin-bottom: 3em;
     font-style: italic;
 }
 
