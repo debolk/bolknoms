@@ -37,5 +37,11 @@
     </form>    
 </div>
 
+<h2>Nog sneller aanmelden</h2>
+<p>
+    Gebruik je Google Chrome? Installeer dan de gratis
+    <a href="https://chrome.google.com/webstore/detail/cpofokaclgokgfcalaiodpkjkhafahfe/">bolknoms-app</a>!
+</p>
+
 <?php echo View::factory('front/_spelregels'); ?>
 <?php echo View::factory('layouts/_navigation'); ?>
