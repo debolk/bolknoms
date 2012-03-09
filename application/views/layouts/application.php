@@ -12,6 +12,8 @@
         <script type="text/javascript" src="/javascripts/date-format.js"></script>
         <script type="text/javascript" src="/javascripts/application.js"></script>
 
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
         <base href="<?php echo URL::base(true,true); ?>" />
     </head>
     <body class="<?php echo Request::$current->controller(); ?> <?php echo Request::$current->action(); ?>">
