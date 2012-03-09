@@ -49,6 +49,10 @@ class Controller_Front extends Controller_Application
                 throw new HTTP_Exception_404('Maaltijd niet gevonden');
             }
         }
+        else {
+            $message = $this->errors($validation);
+            Flash::set(Flash::ERROR, $message);    
+        }
         // Redirect back to form
         $this->request->redirect('/');
     }
