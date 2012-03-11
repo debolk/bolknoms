@@ -1,5 +1,10 @@
 <?php echo View::factory('front/_introductie'); ?>
 
+<p class="notification warning">
+    De afgelopen week waren er problemen met het snel aanmelden voor de eettafel. 
+    Die problemen zijn inmiddels verholpen. Het aanmelden zou nu correct moeten werken.
+    Heb je nog steeds problemen met het aanmelden? Neem dan contact op met Jakob.
+</p>
 <h2>Snel aanmelden</h2>
 <p>
     Meld je je direct aan voor de maaltijd van vandaag. 
