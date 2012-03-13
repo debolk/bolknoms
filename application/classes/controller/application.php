@@ -46,7 +46,7 @@ abstract class Controller_Application extends Controller_Template
                 return;
             }
             else {
-                return $this->_ask_for_credentials();
+                throw new HTTP_Exception_403();
             }
         }
     }
@@ -59,7 +59,7 @@ abstract class Controller_Application extends Controller_Template
     {
         header('WWW-Authenticate: Basic realm="Bolknoms"');
         header('HTTP/1.0 401 Unauthorized');
-        echo View::factory('errors/401');
+        echo View::factory('error/403');
         exit;
     }
 }

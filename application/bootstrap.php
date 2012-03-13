@@ -84,6 +84,7 @@ Kohana::init(array(
     'index_file' => '',
     'caching'    => (Kohana::$environment === Kohana::PRODUCTION),
     'profile'    => (Kohana::$environment !== Kohana::PRODUCTION),
+	'errors'	 => true
 ));
 
 /**
@@ -145,3 +146,8 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 		'controller' => 'front',
 		'action'     => 'index',
 	));
+
+Route::set('error', 'error/<action>', array('action' => '[0-9]++'))
+->defaults(array(
+	'controller' => 'error'
+));
