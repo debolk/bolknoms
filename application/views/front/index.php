@@ -1,10 +1,10 @@
 <?php echo View::factory('front/_introductie'); ?>
 
 <p class="notification warning">
-    <strong>Let op:</strong> Er zijn problemen geconstateerd met het aanmelden. 
-    Na het aanmelden krijg je altijd een groene balk te zien als bevestiging. 
-    <strong>Geen groene balk? Dan ben je niet aangemeld.</strong>
-    Neem contact op met het bestuur per telefoon als het niet werkt.
+    <strong>Let op:</strong> 
+    Na het aanmelden krijg je een groene balk te zien. 
+    Geen groene balk? Dan ben je niet aangemeld.
+    Bel het bestuur (015 212 60 12) als het aanmelden niet lukt.
 </p>
 <h2>Snel aanmelden</h2>
 <p>
