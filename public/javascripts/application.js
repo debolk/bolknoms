@@ -40,8 +40,6 @@ function toggle_names()
     else {
         $(this).html('Verberg namen');
     }
-        
-    
     return false;
 }
 
@@ -72,13 +70,13 @@ function add_registration()
                 name: name,
                 meal_id: meal_id
             },
-            function(result){
+            function(new_row){
                 // Update meal
-                $('tr[data-id="'+meal_id+'"]').replaceWith(result);
+                $('tr[data-id="'+meal_id+'"]').replaceWith(new_row);
+                // Re-open the list of names
+                $('.toggle-names', 'tr[data-id="'+meal_id+'"]').click();
             },'html');
     }
-    // Clear the field
-    $(this).val('');
 }
 
 /**
