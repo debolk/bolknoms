@@ -1,9 +1,10 @@
 <?php echo View::factory('front/_introductie'); ?>
 
 <p class="notification warning">
-    De afgelopen week waren er problemen met het snel aanmelden voor de eettafel. 
-    Die problemen zijn inmiddels verholpen. Het aanmelden zou nu correct moeten werken.
-    Heb je nog steeds problemen met het aanmelden? Neem dan contact op met Jakob.
+    <strong>Let op:</strong> Er zijn problemen geconstateerd met het aanmelden. 
+    Na het aanmelden krijg je altijd een groene balk te zien als bevestiging. 
+    <strong>Geen groene balk? Dan ben je niet aangemeld.</strong>
+    Neem contact op met het bestuur per telefoon als het niet werkt.
 </p>
 <h2>Snel aanmelden</h2>
 <p>
