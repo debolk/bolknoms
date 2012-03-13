@@ -123,7 +123,7 @@ class Controller_Front extends Controller_Application
     private function valideer_aanmelding($data)
     {
         $validation = Validation::factory($data);
-        $validation->rules('name', array(array('not_empty'),array('regex',array(':value','/[:alpha,:blank]+/'))));
+        $validation->rules('name', array(array('not_empty'),array('regex',array(':value','/[A-Za-z -]+/'))));
         return $validation;
     }
 
