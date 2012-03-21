@@ -20,6 +20,8 @@ $(document).ready(function() {
 
     $('.confirmation-needed').live("click",confirm_intent);
 
+    $('.destroy-registration').live("click",remove_registration);
+
     $('.new_registration').live("blur",add_registration);
     
     $('input[name="all-meals"]').change(select_all_meals);
@@ -77,6 +79,30 @@ function add_registration()
                 $('.toggle-names', 'tr[data-id="'+meal_id+'"]').click();
             },'html');
     }
+}
+
+/**
+ * Removes a registration from the server
+ */
+function remove_registration()
+{
+    // Get the value, ignoring whitespace
+    var meal = $(this).parents('tr');
+    var meal_id = meal.attr('data-id');
+    var name = $(this).prev().html();
+
+    if (confirm('Weet je zeker dat je '+name+' wilt uitschrijven?')) {
+        $.post($(this).attr('href'), null, 
+            function(new_row){
+                // Update meal
+                $('tr[data-id="'+meal_id+'"]').replaceWith(new_row);
+                // Re-open the list of names
+                $('.toggle-names', 'tr[data-id="'+meal_id+'"]').click();
+            },'html');
+    }
+    
+    // Stop default event (follow link)
+    return false;
 }
 
 /**

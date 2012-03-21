@@ -127,8 +127,14 @@ class Controller_Administratie extends Controller_Application
 
         $registration->delete();
 
-        Flash::set(Flash::SUCCESS,"$name afgemeld voor de maaltijd op $meal");
-        $this->request->redirect('/administratie');
+        if ($this->request->is_ajax()) {
+            echo View::factory('administratie/_meal',array('meal' => $meal));
+            exit;
+        }
+        else {
+            Flash::set(Flash::SUCCESS,"$name afgemeld voor de maaltijd op $meal");
+            $this->request->redirect('/administratie');
+        }
     }
 
     /**

@@ -6,10 +6,10 @@
 		<a href="#" class="toggle-names">Toon namen</a><br />
 		<div class="names">
 			<?php foreach ($meal->registrations->find_all() as $registration): ?>
-				<?php echo $registration; ?>
-				<a href="/administratie/afmelden/<?php echo $registration->id; ?>" class="confirmation-needed">
+				<span class="registration"><?php echo $registration; ?></span>
+				<a href="/administratie/afmelden/<?php echo $registration->id; ?>" class="destroy-registration">
 					<img src="/images/cross.png" alt="Verwijderen"/>
-				</a>
+				</a>				
 				<br />
 			<?php endforeach; ?>
 			<?php echo Form::input('name', '', array('class' => 'new_registration')); ?>
