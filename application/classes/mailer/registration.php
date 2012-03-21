@@ -9,7 +9,7 @@ class Mailer_Registration
      */
     public static function send_confirmation($name, $email, $registrations)
     {
-        $title = '[Bolk] Aanmelding eettafel';
+        $title = '[deBolk] Aanmelding eettafel';
         $body = View::factory('front/email',array(
                                     'name' => $name,
                                     'registrations' => $registrations
