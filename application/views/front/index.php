@@ -1,13 +1,6 @@
 <?php echo View::factory('front/_introductie'); ?>
 
 <h2>Snel aanmelden</h2>
-<p>
-    Meld je je direct aan voor de maaltijd van vandaag. 
-    Je krijgt geen e-mail ter bevestiging en je kunt je niet meer afmelden.
-    Je kunt ook gebruik maken van <a href="/uitgebreid-inschrijven">uitgebreid aanmelden</a>
-    om je makkelijk aan te melden voor meerdere dagen tegelijk. 
-</p>
-
 <?php echo Flash::display_messages(); ?>
 
 <?php if (isset($validation)): ?>
@@ -23,7 +16,7 @@
         <p>
             <label for="name" class="label">Naam</label>
             <input type="text" name="name" value="" />
-        </p>    
+        </p>
         <p>
             <input type="submit" value="Aanmelden"/>
         </p>    
@@ -35,11 +28,18 @@
     <?php endif; ?>
 </form>
 
+<p>
+    Wil je je aanmelden voor meerdere dagen tegelijkertijd, je vrienden meenemen, of 
+    heb je speciale eisen m.b.t. voedsel? Schrijf je dan in via
+    <a href="/uitgebreid-inschrijven">uitgebreid aanmelden</a>.
+</p>
+
+<?php echo View::factory('front/_spelregels'); ?>
+
 <h2>Nog sneller aanmelden</h2>
 <p>
     Gebruik je Google Chrome? Installeer dan de gratis
     <a href="https://chrome.google.com/webstore/detail/cpofokaclgokgfcalaiodpkjkhafahfe/">bolknoms-app</a>!
 </p>
 
-<?php echo View::factory('front/_spelregels'); ?>
 <?php echo View::factory('layouts/_navigation'); ?>

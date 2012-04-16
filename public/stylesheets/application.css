@@ -145,11 +145,23 @@ a:hover, a:active {
     font-style: italic;
 }
 
+form {
+    margin-bottom: 1em;
+}
+
 .label {
     font-weight: bold;
     clear: left;
     width: 150px;
     float: left;
+}
+
+form small {
+    display: block;
+    margin-left: 150px;
+    color: darkgray;
+    font-style: italic;
+    width: 300px;
 }
 
 .clearfix:after {
@@ -158,6 +170,10 @@ a:hover, a:active {
     height: 0;
     clear: both;
     visibility: hidden;
+}
+
+input[type="text"], input[type="password"] {
+    width: 200px;
 }
 
 input[type="submit"] {
@@ -181,7 +197,7 @@ td {
     padding: 0 5px 0 5px;
 }
 
-td.number { text-align: center; }
+td.number, td.checkbox, th.checkbox { text-align: center; }
 td.date   { text-align: right; }
 
 tbody tr:nth-child(2n-1) {

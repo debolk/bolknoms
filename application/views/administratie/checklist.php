@@ -29,6 +29,9 @@
             <?php foreach ($meal->registrations->find_all() as $r): ?>
                 <li>
                     <input type="checkbox" /> <?php echo $r->name; ?>
+                    <?php if (!empty($r->handicap)): ?>
+                        (<?php echo $r->handicap; ?>)
+                    <?php endif; ?>
                 </li>
             <?php endforeach; ?>
         </ul>

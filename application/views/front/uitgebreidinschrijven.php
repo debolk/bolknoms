@@ -10,11 +10,17 @@
 <form action="/uitgebreidaanmelden" method="post" accept-charset="utf-8" class="clearfix">
     <p>
         <label for="name" class="label">Naam</label>
-        <input type="text" name="name" id="name"/>
+        <input type="text" name="name" id="name"/><br>
+        <small>Gebruik je volledige voor- en achternaam. Onduidelijke inschrijvingen worden vernietigd.</small>
     </p>
     <p>
         <label for="email" class="label">E-mail</label>
-        <input type="text" name="email" id="email"/>
+        <input type="text" name="email" id="email"/><br>
+    </p>
+    <p>
+        <label for="handicap" class="label">Handicap</label>
+        <input type="text" name="handicap" id="handicap"><br>
+        <small>Bijvoorbeeld vegetari&euml;r, geen pinda's, etc..</small>
     </p>
 
     <p>
@@ -23,7 +29,7 @@
             <table>
                 <thead>
                 <tr>
-                    <th><input type="checkbox" name="all-meals"></th>
+                    <th class="checkbox"><input type="checkbox" name="all-meals"></th>
                     <th>Datum</th>
                     <th>Aanmeldingen</th>
                 </tr>
@@ -32,7 +38,7 @@
                     <?php foreach ($meals as $meal): ?>
                         <?php if ($meal->open_for_registrations()): ?>
                             <tr>
-                                <td><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
+                                <td class="checkbox"><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
                                 <td class="date"><?php echo $meal; ?></td>
                                 <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
                             </tr>

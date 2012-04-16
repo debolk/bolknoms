@@ -67,6 +67,7 @@ class Controller_Front extends Controller_Application
         if ($validation->check()) {
             // Escape data
             $name = HTML::chars($_POST['name']);
+            $handicap = HTML::chars($_POST['handicap']);
             $email = HTML::chars($_POST['email']);
             // Create registrations
             $registrations = array();
@@ -74,6 +75,7 @@ class Controller_Front extends Controller_Application
                 $reg = ORM::factory('registration');
                 $reg->name = $name;
                 $reg->email = $email;
+                $reg->handicap = $handicap;
                 $reg->meal = ORM::factory('meal', (int)$meal_id);
                 $reg->save();
                 $registrations[] = $reg;
