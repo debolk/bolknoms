@@ -197,11 +197,15 @@ td {
     padding: 0 5px 0 5px;
 }
 
-td.number, td.checkbox, th.checkbox { text-align: center; }
-td.date   { text-align: right; }
+.number, .control { text-align: center; }
+.date   { text-align: right; }
 
 tbody tr:nth-child(2n-1) {
     background-color: #dFdFdF;
+}
+
+.meal {
+    background-color: #D92E50 !important;
 }
 
 /*
@@ -247,4 +251,8 @@ h1.error {
 
 .names {
     display: none;
+}
+
+.expander {
+    cursor: pointer;
 }

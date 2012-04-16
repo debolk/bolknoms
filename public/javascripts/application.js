@@ -31,6 +31,9 @@ $(document).ready(function() {
     if ($('body').hasClass('administratie') && $('body').hasClass('checklist')) {
         window.print();
     }
+
+    hide_subtables();
+    $('.expander').click(toggle_subtable);
 });
 
 function toggle_names()
@@ -142,4 +145,20 @@ function check_free_date(date) {
     else {
         return [true];
     }
+}
+
+function hide_subtables() {
+    $('.registration, .new_registration').hide();
+}
+
+function toggle_subtable() {
+    var meal = $(this).parents('tbody');
+    $('.registration, .new_registration', meal).toggle();
+    if ($(this).attr('src') == '/images/arrow-right.png') {
+        $(this).attr('src', '/images/arrow-down.png');
+    }
+    else {
+        $(this).attr('src', '/images/arrow-right.png');
+    }
+    
 }
