@@ -1,5 +1,5 @@
 body {
-    background-color: #4B7399;
+    background-color: #E0E0E0;
     font-family: Verdana, Helvetica, Arial;
     font-size: 14px;
 }
@@ -9,7 +9,12 @@ body {
     margin: 0 1em 1em 0;
 }
 
+h1 {
+    color: #066FA2;
+}
+
 h2 {
+    color: #1283BA;
     margin-bottom: 0;
 }
 
@@ -26,7 +31,7 @@ a img {
 }
 
 a {
-    color: #D12E2E;
+    color: #FF8900;
     text-decoration: none;
 }
 
@@ -46,7 +51,6 @@ a:hover, a:active {
     min-wdith: 220px;
     background-color: #FFF;
     padding: 20px 40px;
-    border: solid 1px black;
     margin-top: 20px;
 }
 
@@ -203,11 +207,11 @@ td {
 .date   { text-align: right; }
 
 tbody tr:nth-child(2n-1) {
-    background-color: #dFdFdF;
+    background-color: #E0E0E0;
 }
 
-.meal {
-    background-color: #D92E50 !important;
+.meal th {
+    background-color: #E0E0F0 !important;
 }
 
 /*

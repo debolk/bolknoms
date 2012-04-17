@@ -6,17 +6,17 @@
 		<th class="date"><?php echo $meal; ?></td>
 		<th class="date"><?php echo $meal->deadline(); ?></td>
 		<th class="number"><?php echo $meal->registrations->count_all(); ?></td>
-		<td>
+		<th>
 			<a href="administratie/checklist/<?php echo $meal->id; ?>">Print</a>
-		</td>
-		<td>
+		</th>
+		<th>
 			<a href="/administratie/bewerk/<?php echo $meal->id; ?>">
 				<img src="/images/pencil.png" alt="Bewerken"/>
 			</a>
 			<a href="/administratie/verwijder/<?php echo $meal->id; ?>" class="confirmation-needed">
 				<img src="/images/cross.png" alt="Verwijderen"/>
 			</a>
-		</td>
+		</th>
 	</tr>
 
 	<?php foreach ($meal->registrations->find_all() as $registration): ?>
