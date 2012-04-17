@@ -23,6 +23,7 @@ $(document).ready(function() {
     $('.destroy-registration').live("click",remove_registration);
 
     $('.new_registration input[type="submit"]').live('click',add_registration);
+    $('.new_registration input[type="text"]').live('keyup',add_registration_if_enter);
     
     $('input[name="all-meals"]').change(select_all_meals);
     
@@ -50,6 +51,15 @@ function select_all_meals()
  */
 function confirm_intent() {
     return confirm('Are you sure?');
+}
+
+function add_registration_if_enter(data) {
+    // If enter is pressed
+    if (data.which == 13) {
+        // Trigger the submit-function
+        var row = $(this).parents('.new_registration');
+        $('input[type="submit"]',row).click();
+    }
 }
 
 /**
