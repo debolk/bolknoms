@@ -10,16 +10,16 @@
 <form action="/uitgebreidaanmelden" method="post" accept-charset="utf-8" class="clearfix">
     <p>
         <label for="name" class="label">Naam</label>
-        <input type="text" name="name" id="name"/><br>
+        <input type="text" name="name" id="name"/>
         <small>Gebruik je volledige voor- en achternaam. Onduidelijke inschrijvingen worden vernietigd.</small>
     </p>
     <p>
         <label for="email" class="label">E-mail</label>
-        <input type="text" name="email" id="email"/><br>
+        <input type="text" name="email" id="email"/>
     </p>
     <p>
         <label for="handicap" class="label">Handicap</label>
-        <input type="text" name="handicap" id="handicap"><br>
+        <input type="text" name="handicap" id="handicap">
         <small>Bijvoorbeeld vegetari&euml;r, geen pinda's, etc..</small>
     </p>
 

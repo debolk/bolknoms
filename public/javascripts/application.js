@@ -34,6 +34,11 @@ $(document).ready(function() {
 
     hide_subtables();
     $('.expander').click(toggle_subtable);
+
+    // Hiding and showing form help texts
+    $('form p small').hide();
+    $('form p input[type="text"]').focus(show_input_help);
+    $('form p input[type="text"]').blur(hide_input_help);
 });
 
 function toggle_names()
@@ -161,4 +166,12 @@ function toggle_subtable() {
         $(this).attr('src', '/images/arrow-right.png');
     }
     
+}
+
+function show_input_help() {
+    $('small',$(this).parents('p')).show();
+}
+
+function hide_input_help() {
+    $('small',$(this).parents('p')).hide();
 }

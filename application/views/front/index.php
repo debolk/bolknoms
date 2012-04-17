@@ -16,6 +16,7 @@
         <p>
             <label for="name" class="label">Naam</label>
             <input type="text" name="name" value="" />
+            <small>Gebruik je volledige voor- en achternaam. Onduidelijke inschrijvingen worden vernietigd.</small>
         </p>
         <p>
             <input type="submit" value="Aanmelden"/>

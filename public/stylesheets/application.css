@@ -157,14 +157,15 @@ form {
 }
 
 form small {
+    float: left;
     display: block;
-    margin-left: 150px;
     color: darkgray;
     font-style: italic;
-    width: 300px;
+    width: 280px;
+    margin-left: 10px;
 }
 
-.clearfix:after {
+.clearfix:after, form p:after {
     content: ".";
     display: block;
     height: 0;
@@ -174,6 +175,7 @@ form small {
 
 input[type="text"], input[type="password"] {
     width: 200px;
+    float: left;
 }
 
 input[type="submit"] {
