@@ -94,7 +94,8 @@ class Controller_Administratie extends Controller_Application
         // Build an array of the data to store
         $data = array(
             'meal_id' => (int)$_POST['meal_id'],
-            'name' => (string)$_POST['name']
+            'name' => (string)$_POST['name'],
+            'handicap' => (string)$_POST['handicap']
         );
         // Find the meal we're changing
         $meal = ORM::factory('meal',$data['meal_id']);
@@ -103,7 +104,7 @@ class Controller_Administratie extends Controller_Application
         }
 
         // Create a new registration
-        $registration = ORM::factory('registration')->values($data,array('meal_id','name'));
+        $registration = ORM::factory('registration')->values($data,array('meal_id','name','handicap'));
         try {
             $registration->save();
             echo View::factory('administratie/_meal',array('meal' => $meal));
@@ -128,7 +129,7 @@ class Controller_Administratie extends Controller_Application
         $registration->delete();
 
         if ($this->request->is_ajax()) {
-            echo View::factory('administratie/_meal',array('meal' => $meal));
+            echo 'success';
             exit;
         }
         else {

@@ -1,7 +1,7 @@
 <tbody data-id="<?php echo $meal->id; ?>">
 	<tr class="meal">
 		<th class="control">
-			<img src="/images/arrow-right.png" alt="" class="expander" />
+			<img src="/images/arrow-right.png" alt="" class="expander" title="Toon aanmeldingen" />
 		</th>
 		<th class="date"><?php echo $meal; ?></td>
 		<th class="date"><?php echo $meal->deadline(); ?></td>
@@ -19,6 +19,14 @@
 		</th>
 	</tr>
 
+	<tr class="new_registration">
+		<td>&nbsp;</td>
+		<td><?php echo Form::input('name', '', array('placeholder' => 'Nieuwe aanmelding')); ?></td>
+		<td><?php echo Form::input('handicap', '', array('placeholder' => 'handicap')); ?></td>
+		<td><input type="submit" value="+" /></td>
+		<td colspan=2>&nbsp;</td>
+	</tr>
+
 	<?php foreach ($meal->registrations->find_all() as $registration): ?>
 		<tr class="registration">
 			<td>&nbsp;</td>
@@ -32,9 +40,5 @@
 			<td colspan="2">&nbsp;</td>
 		</tr>
 	<?php endforeach; ?>
-	<tr class="new_registration">
-		<td>&nbsp;</td>
-		<td><?php echo Form::input('name', '', array('class' => 'new_registration')); ?></td>
-		<td colspan="4">&nbsp;</td>
-	</tr>
+	
 </tbody>

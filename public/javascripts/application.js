@@ -22,16 +22,15 @@ $(document).ready(function() {
 
     $('.destroy-registration').live("click",remove_registration);
 
-    $('.new_registration').live("blur",add_registration);
+    $('.new_registration input[type="submit"]').live('click',add_registration);
     
     $('input[name="all-meals"]').change(select_all_meals);
-    
-    $('.toggle-names').live("click", toggle_names);
     
     if ($('body').hasClass('administratie') && $('body').hasClass('checklist')) {
         window.print();
     }
 
+    // Interactive tables for administration
     hide_subtables();
     $('.expander').click(toggle_subtable);
 
@@ -40,18 +39,6 @@ $(document).ready(function() {
     $('form p input[type="text"]').focus(show_input_help);
     $('form p input[type="text"]').blur(hide_input_help);
 });
-
-function toggle_names()
-{
-    $('.names',$(this).parents('td')).toggle();
-    if ($(this).html() === 'Verberg namen') {
-        $(this).html('Toon namen');    
-    }
-    else {
-        $(this).html('Verberg namen');
-    }
-    return false;
-}
 
 function select_all_meals()
 {
@@ -70,21 +57,24 @@ function confirm_intent() {
  */
 function add_registration()
 {
-    // Get the value, ignoring whitespace
-    var meal_id = $(this).parents('tr').attr('data-id');
-    var name = $(this).val().trim();
+    // Get the values, ignoring whitespace
+    var form = $(this).parents('.new_registration');
+    var meal_id = $(this).parents('tbody').attr('data-id');
+    var name = $('input[name="name"]',form).val().trim();
+    var handicap = $('input[name="handicap"]',form).val().trim();
 
     if (name !== '') {
         // Update the server
         $.post('/administratie/aanmelden',{
+                meal_id: meal_id,
                 name: name,
-                meal_id: meal_id
+                handicap: handicap
             },
             function(new_row){
                 // Update meal
-                $('tr[data-id="'+meal_id+'"]').replaceWith(new_row);
+                $('tbody[data-id="'+meal_id+'"]').replaceWith(new_row);
                 // Re-open the list of names
-                $('.toggle-names', 'tr[data-id="'+meal_id+'"]').click();
+                $('.expander', 'tbody[data-id="'+meal_id+'"]').click();
             },'html');
     }
 }
@@ -95,18 +85,21 @@ function add_registration()
 function remove_registration()
 {
     // Get the value, ignoring whitespace
-    var meal = $(this).parents('tr');
+    var meal = $(this).parents('.meal');
+    var registration = $(this).parents('.registration');
     var meal_id = meal.attr('data-id');
-    var name = $(this).prev().html();
+    var name = $('.name',registration).html();
 
     if (confirm('Weet je zeker dat je '+name+' wilt uitschrijven?')) {
         $.post($(this).attr('href'), null, 
-            function(new_row){
-                // Update meal
-                $('tr[data-id="'+meal_id+'"]').replaceWith(new_row);
-                // Re-open the list of names
-                $('.toggle-names', 'tr[data-id="'+meal_id+'"]').click();
-            },'html');
+            function(result){
+                if (result == 'success') {
+                    $(registration).remove();    
+                }
+                else {
+                    alert('Er is een fout opgetreden. Probeer de pagina te verversen.')
+                }
+            });
     }
     
     // Stop default event (follow link)
@@ -157,8 +150,13 @@ function hide_subtables() {
 }
 
 function toggle_subtable() {
+    // Find the subtable
     var meal = $(this).parents('tbody');
+
+    // Hide the rows
     $('.registration, .new_registration', meal).toggle();
+
+    // Toggle arrow
     if ($(this).attr('src') == '/images/arrow-right.png') {
         $(this).attr('src', '/images/arrow-down.png');
     }
