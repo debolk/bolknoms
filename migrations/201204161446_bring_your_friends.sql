@@ -1,2 +1,0 @@
-ALTER TABLE `registrations`
-	ADD COLUMN `friends` TINYINT(2) UNSIGNED NOT NULL DEFAULT '0' AFTER `handicap`;
