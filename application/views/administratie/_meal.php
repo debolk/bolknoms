@@ -3,9 +3,9 @@
 		<th class="control">
 			<img src="/images/arrow-right.png" alt="" class="expander" title="Toon aanmeldingen" />
 		</th>
-		<th class="date"><?php echo $meal; ?></td>
-		<th class="date"><?php echo $meal->deadline(); ?></td>
-		<th class="number"><?php echo $meal->registrations->count_all(); ?></td>
+		<th class="date"><?php echo $meal; ?></th>
+		<th class="date"><?php echo $meal->deadline(); ?></th>
+		<th class="number"><?php echo $meal->registrations->count_all(); ?></th>
 		<th>
 			<a href="administratie/checklist/<?php echo $meal->id; ?>">Print</a>
 		</th>
