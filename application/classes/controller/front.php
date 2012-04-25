@@ -43,7 +43,7 @@ class Controller_Front extends Controller_Application
                     // Do nothing; errors are retrieved in view
                 }
                 // Update user
-                Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd. Je kunt vanavond mee-eten.');
+                Flash::set(Flash::SUCCESS, '<p>Aanmelding geslaagd. Je kunt vanavond mee-eten.</p>'.Helper_Chef::random_video());
             }
             else {
                 throw new HTTP_Exception_404('Maaltijd niet gevonden');
@@ -82,7 +82,7 @@ class Controller_Front extends Controller_Application
             }
             // Update user
             Mailer_Registration::send_confirmation($name, $email, $registrations);
-            Flash::set(Flash::SUCCESS, 'Aanmelding geslaagd. Je ontvangt een e-mail met alle details.');
+            Flash::set(Flash::SUCCESS, '<p>Aanmelding geslaagd. Je ontvangt een e-mail met alle details.</p>'.Helper_Chef::random_video());
         }
         else {
             $message = $this->errors($validation);
