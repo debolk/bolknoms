@@ -39,6 +39,10 @@ $(document).ready(function() {
     $('form p small').hide();
     $('form p input[type="text"]').focus(show_input_help);
     $('form p input[type="text"]').blur(hide_input_help);
+
+    // Store values of forms in localstorage for form persistence
+    $('input[type="text"]').blur(save_form_value);
+    fill_form_values();
 });
 
 function select_all_meals()
@@ -182,4 +186,34 @@ function show_input_help() {
 
 function hide_input_help() {
     $('small',$(this).parents('p')).hide();
+}
+
+function localstorage_supported()
+{
+    try {
+        return 'localStorage' in window && window['localStorage'] !== null;
+    }
+    catch (e) {
+        return false;
+    }
+}
+
+function save_form_value()
+{
+    if (localstorage_supported()) {
+        localStorage[$(this).attr('name')] = $(this).val();
+    }
+}
+
+function fill_form_values()
+{
+    alert('filling form');
+    if (localstorage_supported()) {
+        alert('localstorage supported');
+        $('input[type="text"]').each(function () {
+            if (localStorage.getItem($(this).attr('name')) !== null) {
+                $(this).val(localstorage[$(this).attr('name')]);
+            }
+        });
+    }
 }
