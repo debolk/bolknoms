@@ -1,5 +1,0 @@
-
-C:\xampp\htdocs\bolknoms>ECHO checkout master 
-checkout master
-
-C:\xampp\htdocs\bolknoms>git checkout master 
