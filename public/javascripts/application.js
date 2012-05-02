@@ -207,12 +207,10 @@ function save_form_value()
 
 function fill_form_values()
 {
-    alert('filling form');
     if (localstorage_supported()) {
-        alert('localstorage supported');
         $('input[type="text"]').each(function () {
             if (localStorage.getItem($(this).attr('name')) !== null) {
-                $(this).val(localstorage[$(this).attr('name')]);
+                $(this).val(localStorage[$(this).attr('name')]);
             }
         });
     }
