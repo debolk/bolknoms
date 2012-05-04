@@ -46,6 +46,7 @@ a:hover, a:active {
 }
 
 #container {
+    float: left;
     margin: 1em;
     max-width: 650px;
     min-wdith: 220px;
@@ -53,6 +54,18 @@ a:hover, a:active {
     padding: 20px 40px;
     margin-top: 20px;
 }
+
+#sidebar {
+    float: left;
+    margin: 1em;
+    max-width: 650px;
+    min-wdith: 220px;
+    background-color: #FFF;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#sidebar h2 { margin-top: 0;}
 
 #flash_notice, #flash_error, #flash_alert {
     padding: 5px 8px;

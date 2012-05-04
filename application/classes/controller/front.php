@@ -9,6 +9,7 @@ class Controller_Front extends Controller_Application
     public function action_index()
     {
         $this->template->content->upcoming_meal = ORM::factory('meal')->upcoming()->find();
+        $this->top(5);
     }
     
     /**
@@ -18,6 +19,7 @@ class Controller_Front extends Controller_Application
     public function action_uitgebreidinschrijven()
     {
         $this->template->content->meals = ORM::factory('meal')->upcoming()->find_all();
+        $this->top(5);
     }
     
     /**
@@ -167,5 +169,14 @@ class Controller_Front extends Controller_Application
         $string .= '</ul>';
 
         return $string;
+    }
+
+    /**
+     * Loads the top X of eaters with their stats
+     * @param int $count number of eaters to retrieve
+     */
+    private function top($count = 5)
+    {
+        View::set_global('top_eaters', ORM::factory('registration')->top(5));
     }
 }

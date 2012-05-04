@@ -27,5 +27,8 @@
                 </div>
             <?php endif; ?>
         </div>
+        <div id="sidebar">
+            <?php echo View::factory('front/_top'); ?>
+        </div>
     </body>
 </html>

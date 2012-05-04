@@ -53,6 +53,15 @@ class Model_Registration extends ORM
     }
 
     /**
+     * Loads the top X of eaters with their stats
+     * @param int $count number of eaters to retrieve
+     */
+    public function top($count = 5)
+    {
+        return DB::query(Database::SELECT, 'SELECT name, COUNT(name) AS count FROM registrations GROUP BY name ORDER BY count DESC LIMIT :count')->bind(':count',$count)->as_object('Model_Registration')->execute();
+    }
+
+    /**
      * Generates a random string of 10 characters in the a-z range, used for securing cancellation requests
      * @return string
      */
