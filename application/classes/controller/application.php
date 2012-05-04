@@ -17,6 +17,8 @@ abstract class Controller_Application extends Controller_Template
         parent::before();
 
         $this->_load_default_view();
+
+        $this->top(10);
     }
 
     /**
@@ -61,5 +63,14 @@ abstract class Controller_Application extends Controller_Template
         header('HTTP/1.0 401 Unauthorized');
         echo View::factory('error/403');
         exit;
+    }
+
+    /**
+     * Loads the top X of eaters with their stats
+     * @param int $count number of eaters to retrieve
+     */
+    private function top($count = 5)
+    {
+        View::set_global('top_eaters', ORM::factory('registration')->top($count));
     }
 }
