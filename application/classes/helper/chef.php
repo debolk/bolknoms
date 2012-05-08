@@ -11,6 +11,6 @@ class Helper_Chef
         $codes = array('j1KSaUEu_T4', 'AvDvTnTGjgQ', 'sY_Yf4zz-yo', 'mbs64GvGgPU', 'mXfHyDCcTGQ',
                         '2Qj8PhxSnhg', 'CAsYwW7pt7o', 'B-OFXUaMIv8', 'qT_n__vsguk', 'IwGdHAHg0ig');
         return '<iframe width="420" height="315" src="http://www.youtube.com/embed/'.
-                    $codes[array_rand($codes)].'?autoplay=1&amp;controls=0" frameborder="0"></iframe>';
+                    $codes[array_rand($codes)].'?autoplay=0&amp;controls=1" frameborder="0"></iframe>';
     }
 }
