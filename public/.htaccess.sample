@@ -13,9 +13,9 @@ RewriteBase /
 	Deny From All
 </Files>
 
-# Redirect all traffic to inschrijven.bolkhuis.nl
-RewriteCond %{HTTP_HOST} ^inschrijven\.i\.bolkhuis\.nl$
-RewriteRule (.*) http://inschrijven.bolkhuis.nl/$1 [L,R=301]
+# Redirect all traffic to noms.debolk.nl
+RewriteCond %{HTTP_HOST} ^inschrijven\.bolkhuis\.nl$
+RewriteRule (.*) http://noms.debolk.nl/$1 [L,R=301]
 
 # Protect application and system files from being viewed
 RewriteRule ^(?:application|modules|system)\b.* index.php/$0 [L]
