@@ -123,6 +123,13 @@ class Controller_Front extends Controller_Application
     public function action_disclaimer()
     {
     }
+
+    /**
+     * Outputs the privacy statement for the website
+     */
+    public function action_privacy()
+    {
+    }
     
     /**
      * Validates a quick registration attempt

@@ -145,6 +145,11 @@ Route::set('disclaimer', 'disclaimer')
 		'controller' => 'front',
 		'action'     => 'disclaimer',
 	));
+Route::set('privacy', 'privacy')
+	->defaults(array(
+		'controller' => 'front',
+		'action'     => 'privacy',
+	));
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
