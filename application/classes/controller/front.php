@@ -116,6 +116,13 @@ class Controller_Front extends Controller_Application
         }
         $this->request->redirect('/');
     }
+
+    /**
+     * Outputs the disclaimer for the website
+     */
+    public function action_disclaimer()
+    {
+    }
     
     /**
      * Validates a quick registration attempt

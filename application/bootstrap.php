@@ -140,6 +140,11 @@ Route::set('afmelden', 'afmelden/<id>/<salt>', array('id' => '\d+', 'salt' => '\
 		'controller' => 'front',
 		'action'     => 'afmelden',
 	));
+Route::set('disclaimer', 'disclaimer')
+	->defaults(array(
+		'controller' => 'front',
+		'action'     => 'disclaimer',
+	));
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
