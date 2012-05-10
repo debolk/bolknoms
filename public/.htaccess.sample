@@ -14,7 +14,7 @@ RewriteBase /
 </Files>
 
 # Redirect all traffic to noms.debolk.nl
-RewriteCond %{HTTP_HOST} ^inschrijven\.bolkhuis\.nl$
+RewriteCond %{HTTP_HOST} !^noms\.debolk\.nl$
 RewriteRule (.*) http://noms.debolk.nl/$1 [L,R=301]
 
 # Protect application and system files from being viewed
