@@ -7,7 +7,7 @@
     <?php echo Helper_Form::error_messages_for($validation); ?>
 <?php endif; ?>
 
-<?php if ($upcoming_meal === null): ?>
+<?php if ($upcoming_meal->loaded()): ?>
     <form action="/aanmelden" method="post" accept-charset="utf-8" class="clearfix">
         <p>
             <label for="date" class="label">Volgende eettafel</label>
