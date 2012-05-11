@@ -27,13 +27,12 @@
                 Sorry, de deadline is verstreken. Je kunt je niet meer aanmelden voor de maaltijd
                 van vandaag. Je kunt je nog wel <a href="/uitgebreid-inschrijven">aanmelden voor een andere eettafel</a>.
             </p>
-
-            <p>
-                Wil je je aanmelden voor meerdere dagen tegelijkertijd, je vrienden meenemen, of 
-                heb je speciale eisen m.b.t. voedsel? Schrijf je dan in via
-                <a href="/uitgebreid-inschrijven">uitgebreid aanmelden</a>.
-            </p>
         <?php endif; ?>
+        <p>
+            Wil je je aanmelden voor meerdere dagen tegelijkertijd, je vrienden meenemen, of 
+            heb je speciale eisen m.b.t. voedsel? Schrijf je dan in via
+            <a href="/uitgebreid-inschrijven">uitgebreid aanmelden</a>.
+        </p>
     </form>
 <?php else: ?>
     <p class="notification warning">
