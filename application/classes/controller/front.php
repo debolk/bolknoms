@@ -10,6 +10,49 @@ class Controller_Front extends Controller_Application
     {
         $this->template->content->upcoming_meal = ORM::factory('meal')->upcoming()->find();
     }
+
+    public function action_inschrijven_specifiek()
+    {
+        $this->template->content->meal = $this->find_meal();
+    }
+
+    public function action_aanmelden_specifiek()
+    {
+        $meal = $this->find_meal();
+
+        $validation = $this->valideer_aanmelding($_POST);
+        if ($validation->check()) {
+            // Escape data
+            $name = HTML::chars($_POST['name']);
+            $handicap = HTML::chars($_POST['handicap']);
+            $email = HTML::chars($_POST['email']);
+            
+            if ($meal->loaded()) {
+                $reg = ORM::factory('registration');
+                $reg->name = $name;
+                $reg->email = $email;
+                $reg->handicap = $handicap;
+                $reg->meal = ORM::factory('meal', (int)$meal_id);
+                try {
+                    $reg->save();    
+                }
+                catch (ORM_Validation_Exception $e) {
+                    // Do nothing; errors are retrieved in view
+                }
+                // Update user
+                Flash::set(Flash::SUCCESS, '<p>Aanmelding geslaagd. Je kunt mee-eten.</p>'.Helper_Chef::random_video());
+            }
+            else {
+                throw new HTTP_Exception_404('Maaltijd niet gevonden');
+            }
+        }
+        else {
+            $message = $this->errors($validation);
+            Flash::set(Flash::ERROR, $message);    
+        }
+        // Redirect back to form
+        $this->request->redirect(Route::url('inschrijven_specifiek',array('id' => $meal->id)));
+    }
     
     /**
      * Displays a form with all available meals
@@ -183,5 +226,12 @@ class Controller_Front extends Controller_Application
         return $string;
     }
 
-    
+    private function find_meal()
+    {
+        $meal = ORM::factory('meal',$this->request->param('id'));
+        if (! $meal->loaded()) {
+            throw new HTTP_Exception_404;
+        }
+        return $meal;
+    }
 }
