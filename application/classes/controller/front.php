@@ -32,7 +32,7 @@ class Controller_Front extends Controller_Application
                 $reg->name = $name;
                 $reg->email = $email;
                 $reg->handicap = $handicap;
-                $reg->meal = ORM::factory('meal', (int)$meal_id);
+                $reg->meal = ORM::factory('meal', $meal->id);
                 try {
                     $reg->save();    
                 }
