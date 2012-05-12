@@ -1,5 +1,10 @@
 <?php echo View::factory('front/_introductie'); ?>
 
+<div class="notification success">
+    Mee-eten voor het zusjesfeest? 
+    <?php echo HTML::anchor(Route::url('inschrijven_specifiek', array('id' => '87')), 'Meld je direct aan &rsaquo;'); ?>
+</div>
+
 <h2>Snel aanmelden</h2>
 <?php echo Flash::display_messages(); ?>
 
