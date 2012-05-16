@@ -25,4 +25,19 @@ class Helper_Form
         }
         echo '</ul></div>';
     }
+
+    /**
+     * Formats a form using two rules: 
+     *      1) trim empty spaces from the start and end of the value;
+     *      2) if the value is empty ('') after trimming, set it as null
+     * @param array form values, readable as an array
+     * @return array
+     */
+    public static function prep_form($array)
+    {
+        foreach ($array as $key => $value) {
+            $array[$key] = (trim($value) !== '') ? (trim($value)) : (null);
+        }
+        return $array;
+    }
 }
