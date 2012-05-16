@@ -4,6 +4,11 @@
 			<img src="/images/arrow-right.png" alt="" class="expander" title="Toon aanmeldingen" />
 		</th>
 		<th class="date"><?php echo $meal; ?></th>
+		<th class="control">
+			<?php if ($meal->promoted()): ?>
+				<img src="/images/tick.png" alt="Ja" title="Deze maaltijd wordt extra gepromoot" />
+			<?php endif; ?>
+		</th>
 		<th class="date"><?php echo $meal->deadline(); ?></th>
 		<th class="number"><?php echo $meal->registrations->count_all(); ?></th>
 		<th>
@@ -24,7 +29,7 @@
 		<td><?php echo Form::input('name', '', array('placeholder' => 'Nieuwe aanmelding')); ?></td>
 		<td><?php echo Form::input('handicap', '', array('placeholder' => 'handicap')); ?></td>
 		<td><input type="submit" value="+" /></td>
-		<td colspan=2>&nbsp;</td>
+		<td colspan=3>&nbsp;</td>
 	</tr>
 
 	<?php foreach ($meal->registrations->find_all() as $registration): ?>
@@ -37,7 +42,7 @@
 					<img src="/images/cross.png" alt="Verwijderen"/>
 				</a>
 			</td>
-			<td colspan="2">&nbsp;</td>
+			<td colspan=3>&nbsp;</td>
 		</tr>
 	<?php endforeach; ?>
 	
