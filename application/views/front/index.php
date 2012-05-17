@@ -14,7 +14,7 @@
             <?php echo $upcoming_meal; ?>
             <?php if (! $upcoming_meal->today()): ?>
                 <br>
-                <span class="warning">Let op: deze maaltijd is morgen!</span>
+                <span class="warning">Let op: deze maaltijd is niet vandaag!</span>
             <?php endif; ?>
         </p>
         <p>
