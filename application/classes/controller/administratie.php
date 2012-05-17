@@ -21,9 +21,6 @@ class Controller_Administratie extends Controller_Application
     {
         $this->template->content->upcoming_meals = ORM::factory('meal')->upcoming()->find_all();
         $this->template->content->previous_meals = ORM::factory('meal')->previous()->find_all();
-
-        // Add new meals if needed
-        $this->_create_meals();
     }
 
     /**
@@ -175,13 +172,5 @@ class Controller_Administratie extends Controller_Application
         }
         echo View::factory('administratie/checklist',array('meal' => $meal));
         exit;
-    }
-
-    /**
-     * Creates new meals
-     */
-    private function _create_meals()
-    {
-        
     }
 }
