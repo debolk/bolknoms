@@ -19,6 +19,7 @@ abstract class Controller_Application extends Controller_Template
         $this->_load_default_view();
 
         $this->top(10);
+        $this->promotions();
     }
 
     /**
@@ -72,5 +73,13 @@ abstract class Controller_Application extends Controller_Template
     private function top($count = 5)
     {
         View::set_global('top_eaters', ORM::factory('registration')->top($count));
+    }
+
+    /**
+     * Loads all promoted meals
+     */
+    private function promotions()
+    {
+        View::set_global('promoted_meals', ORM::factory('meal')->promotions()->find_all());
     }
 }

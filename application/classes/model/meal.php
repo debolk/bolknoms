@@ -96,9 +96,22 @@ class Model_meal extends ORM
         return strftime('%H:%M',strtotime($this->locked)).' uur';
     }
 
+    /**
+     * Returns whether a meal is being promoted
+     * @return boolean
+     */
     public function promoted()
     {
         return ($this->promoted === '1');
+    }
+
+    /**
+     * Returns all promoted meals
+     * @return Model_Meal
+     */
+    public function promotions()
+    {
+        return $this->where('promoted','=','1');
     }
 
     /**

@@ -28,12 +28,8 @@
             <?php endif; ?>
         </div>
         <div id="sidebar">
-            <div class="block">
-                <?php echo View::factory('layouts/_promotions'); ?>    
-            </div>
-            <div class="block">
-                <?php echo View::factory('front/_top'); ?>    
-            </div>
+            <?php echo View::factory('layouts/_promotions'); ?>
+            <?php echo View::factory('front/_top'); ?>
         </div>
     <script type="text/javascript">
       var _gaq = _gaq || [];

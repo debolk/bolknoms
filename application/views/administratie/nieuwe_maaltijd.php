@@ -16,6 +16,14 @@
         <?php endif; ?>
     </p>
     <p>
+      <label for="event" class="label">Evenement</label>
+      <?php echo Form::input('event',Arr::get($_POST,'event'),array('id' => 'event')); ?>
+    </p>
+    <p>
+      <label for="promoted" class="label">Extra promotie</label>
+      <?php echo Form::checkbox('promoted','1',Arr::get($_POST,'promoted'),array('id' => 'promoted')); ?>
+    </p>
+    <p>
         <input type="submit" value="Maaltijd toevoegen" />
     </p>
 </form>
