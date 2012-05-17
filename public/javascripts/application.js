@@ -198,16 +198,21 @@ function localstorage_supported()
     }
 }
 
+function on_front()
+{
+    return $('body').hasClass('front');
+}
+
 function save_form_value()
 {
-    if (localstorage_supported()) {
+    if (on_front() && localstorage_supported()) {
         localStorage[$(this).attr('name')] = $(this).val();
     }
 }
 
 function fill_form_values()
 {
-    if (localstorage_supported()) {
+    if (on_front() && localstorage_supported()) {
         $('input[type="text"]').each(function () {
             if (localStorage.getItem($(this).attr('name')) !== null) {
                 $(this).val(localStorage[$(this).attr('name')]);
