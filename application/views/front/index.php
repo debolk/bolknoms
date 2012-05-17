@@ -13,16 +13,14 @@
 <?php endif; ?>
 
 <?php if ($upcoming_meal->loaded()): ?>
-    <?php if (! $upcoming_meal->today()): ?>
-        <p class="notification warning">
-            <strong>Let op:</strong> je schrijft je in voor de maaltijd morgen. Inschrijven voor
-            vandaag is helaas niet meer mogelijk.
-        </p>
-    <?php endif; ?>
     <form action="/aanmelden" method="post" accept-charset="utf-8" class="clearfix">
         <p>
             <label for="date" class="label">Volgende eettafel</label>
             <?php echo $upcoming_meal; ?>
+            <?php if (! $upcoming_meal->today()): ?>
+                <br>
+                <span class="warning">Let op: deze maaltijd is morgen!</span>
+            <?php endif; ?>
         </p>
         <p>
             <label for="name" class="label">Naam</label>
