@@ -63,6 +63,7 @@ class Controller_Administratie extends Controller_Application
 
         if ($_POST) {
             $_POST = Helper_Form::prep_form($_POST);
+            $_POST['promoted'] = (isset($_POST['promoted'])) ? (1) : (0);
             $meal->values($_POST, array('date','locked', 'event', 'promoted'));
             try {
                 $meal->save();

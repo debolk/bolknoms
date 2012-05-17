@@ -17,7 +17,7 @@
     </p>
     <p>
       <label for="promoted" class="label">Extra promotie</label>
-      <?php echo Form::checkbox('promoted','1', (Arr::get($meal->as_array(),'promoted')), array('id' => 'promoted')); ?>
+      <?php echo Form::checkbox('promoted','1', (Arr::get($meal->as_array(),'promoted') == '1'), array('id' => 'promoted')); ?>
     </p>
     <p>
         <input type="submit" value="Wijzigingen opslaan" />
