@@ -8,7 +8,7 @@ class Controller_Front extends Controller_Application
      */
     public function action_index()
     {
-        $this->template->content->upcoming_meal = ORM::factory('meal')->upcoming()->find();
+        $this->template->content->upcoming_meal = ORM::factory('meal')->available()->find();
     }
 
     public function action_inschrijven_specifiek()
@@ -60,7 +60,7 @@ class Controller_Front extends Controller_Application
      */
     public function action_uitgebreidinschrijven()
     {
-        $this->template->content->meals = ORM::factory('meal')->upcoming()->find_all();
+        $this->template->content->meals = ORM::factory('meal')->available()->find_all();
     }
     
     /**

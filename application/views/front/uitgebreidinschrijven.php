@@ -36,13 +36,11 @@
                 </thead>
                 <tbody>
                     <?php foreach ($meals as $meal): ?>
-                        <?php if ($meal->open_for_registrations()): ?>
-                            <tr>
-                                <td class="checkbox"><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
-                                <td class="date"><?php echo $meal; ?></td>
-                                <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
-                            </tr>
-                        <?php endif; ?>
+                        <tr>
+                            <td class="checkbox"><?php echo Form::checkbox('meals[]', $meal->id); ?></td>
+                            <td class="date"><?php echo $meal; ?></td>
+                            <td class="number"><?php echo $meal->registrations->count_all(); ?></td>
+                        </tr>
                     <?php endforeach; ?>
 
                 </tbody>

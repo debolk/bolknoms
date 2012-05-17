@@ -8,26 +8,25 @@
 <?php endif; ?>
 
 <?php if ($upcoming_meal->loaded()): ?>
+    <?php if (! $upcoming_meal->today()): ?>
+        <p class="notification warning">
+            <strong>Let op:</strong> je schrijft je in voor de maaltijd morgen. Inschrijven voor
+            vandaag is helaas niet meer mogelijk.
+        </p>
+    <?php endif; ?>
     <form action="/aanmelden" method="post" accept-charset="utf-8" class="clearfix">
         <p>
             <label for="date" class="label">Volgende eettafel</label>
             <?php echo $upcoming_meal; ?>
         </p>
-        <?php if ($upcoming_meal->open_for_registrations()): ?>
-            <p>
-                <label for="name" class="label">Naam</label>
-                <input type="text" name="name" value="" />
-                <small>Gebruik je volledige voor- en achternaam. Onduidelijke inschrijvingen worden vernietigd.</small>
-            </p>
-            <p>
-                <input type="submit" value="Aanmelden"/>
-            </p>    
-        <?php else: ?>
-            <p class="notification warning">
-                Sorry, de deadline is verstreken. Je kunt je niet meer aanmelden voor de maaltijd
-                van vandaag. Je kunt je nog wel <a href="/uitgebreid-inschrijven">aanmelden voor een andere eettafel</a>.
-            </p>
-        <?php endif; ?>
+        <p>
+            <label for="name" class="label">Naam</label>
+            <input type="text" name="name" value="" />
+            <small>Gebruik je volledige voor- en achternaam. Onduidelijke inschrijvingen worden vernietigd.</small>
+        </p>
+        <p>
+            <input type="submit" value="Aanmelden"/>
+        </p>    
         <p>
             Wil je je aanmelden voor meerdere dagen tegelijkertijd, je vrienden meenemen, of 
             heb je speciale eisen m.b.t. voedsel? Schrijf je dan in via

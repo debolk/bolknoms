@@ -38,7 +38,7 @@ class Model_meal extends ORM
     /**
      * Excludes all past dates
      * @chainable
-     * @return $this
+     * @return Model_Meal
      */
     public function upcoming()
     {
@@ -46,9 +46,27 @@ class Model_meal extends ORM
     }
 
     /**
+     * Lists all meals available for registering
+     * @chainable
+     * @return Model_Meal
+     */
+    public function available()
+    {
+        // Allow all upcoming meals on later days
+        $this->where('date', '>', date('Y-m-d'));
+        // Include the meal from today, if the deadline still looms
+        $this->or_where_open();
+            $this->where('date', '=', date('Y-m-d'));
+            $this->where('locked', '>=', strftime('%H:%I'));
+        $this->where_close();
+        // Enable method chaining for futher refinement
+        return $this;
+    }
+
+    /**
      * Excludes all dates later than yesterday
      * @chainable
-     * @return $this
+     * @return Model_Meal
      */
     public function previous()
     {
@@ -128,11 +146,20 @@ class Model_meal extends ORM
 
     /**
      * Returns whether the meal is open for registrations
-     * @return bool
+     * @return boolean
      */
     public function open_for_registrations()
     {
         $closing_moment = strtotime($this->date.' '.$this->locked);
         return ($closing_moment > time());
+    }
+
+    /**
+     * Returns whether a meal is today
+     * @return boolean
+     */
+    public function today()
+    {
+        return ($this->date === strftime('%Y-%m-%d'));
     }
 }
