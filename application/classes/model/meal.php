@@ -79,7 +79,12 @@ class Model_meal extends ORM
      */
     public function __toString()
     {
-        return strftime('%A %d %B %Y', strtotime($this->date));
+        $output = strftime('%A %d %B %Y', strtotime($this->date));
+
+        if ($this->event !== null) {
+            $output .= ' ('.$this->event.')';
+        }
+        return $output;
     }
 
     /**
@@ -89,6 +94,24 @@ class Model_meal extends ORM
     public function deadline()
     {
         return strftime('%H:%M',strtotime($this->locked)).' uur';
+    }
+
+    /**
+     * Returns whether a meal is being promoted
+     * @return boolean
+     */
+    public function promoted()
+    {
+        return ($this->promoted === '1');
+    }
+
+    /**
+     * Returns all promoted meals
+     * @return Model_Meal
+     */
+    public function promotions()
+    {
+        return $this->where('promoted','=','1');
     }
 
     /**

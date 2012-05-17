@@ -3,6 +3,7 @@
         <thead><tr>
             <th>&nbsp;</th>
             <th>Datum</th>
+            <th>Promo</th>
             <th>Deadline</th>
             <th>#</th>
             <th>Checklist</th>

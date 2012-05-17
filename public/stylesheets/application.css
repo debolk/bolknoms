@@ -49,7 +49,7 @@ a:hover, a:active {
     float: left;
     margin: 1em;
     max-width: 650px;
-    min-wdith: 220px;
+    min-width: 220px;
     background-color: #FFF;
     padding: 20px 40px;
     margin-top: 20px;
@@ -57,12 +57,15 @@ a:hover, a:active {
 
 #sidebar {
     float: left;
-    margin: 1em;
     max-width: 650px;
-    min-wdith: 220px;
+    min-width: 220px;
+}
+
+#sidebar .block {
+    margin: 1em;
     background-color: #FFF;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 20px; 
 }
 
 #sidebar h2 { margin-top: 0;}

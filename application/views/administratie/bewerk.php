@@ -12,6 +12,14 @@
         <?php echo Form::input('locked',strftime('%H:%M',strtotime(Arr::get($meal->as_array(),'locked'))),array('id' => 'locked')); ?>
     </p>
     <p>
+      <label for="event" class="label">Evenement</label>
+      <?php echo Form::input('event', Arr::get($meal->as_array(),'event'), array('id' => 'event')); ?>
+    </p>
+    <p>
+      <label for="promoted" class="label">Extra promotie</label>
+      <?php echo Form::checkbox('promoted','1', (Arr::get($meal->as_array(),'promoted') == '1'), array('id' => 'promoted')); ?>
+    </p>
+    <p>
         <input type="submit" value="Wijzigingen opslaan" />
         of <?php echo HTML::anchor(Route::url('default',array('controller' => 'administratie')),'niet opslaan'); ?>
     </p>

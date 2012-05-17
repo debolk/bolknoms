@@ -28,6 +28,7 @@
             <?php endif; ?>
         </div>
         <div id="sidebar">
+            <?php echo View::factory('layouts/_promotions'); ?>
             <?php echo View::factory('front/_top'); ?>
         </div>
     <script type="text/javascript">

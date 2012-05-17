@@ -32,7 +32,8 @@ class Controller_Administratie extends Controller_Application
         $this->template->content->meal = $meal = ORM::factory('meal');
 
         if ($_POST) {
-            $meal->values($_POST, array('date','locked'));
+            $_POST = Helper_Form::prep_form($_POST);
+            $meal->values($_POST, array('date','locked', 'event', 'promoted'));
             try {
                 $meal->save();
                 Flash::set(Flash::SUCCESS, 'Maaltijd toegevoegd');
@@ -58,7 +59,9 @@ class Controller_Administratie extends Controller_Application
         }
 
         if ($_POST) {
-            $meal->values($_POST, array('date','locked'));
+            $_POST = Helper_Form::prep_form($_POST);
+            $_POST['promoted'] = (isset($_POST['promoted'])) ? (1) : (0);
+            $meal->values($_POST, array('date','locked', 'event', 'promoted'));
             try {
                 $meal->save();
                 Flash::set(Flash::SUCCESS, 'Maaltijd geüpdate');
