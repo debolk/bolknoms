@@ -1,10 +1,8 @@
-<phpunit colors="true" bootstrap="../../public/index.php">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="../../modules/unittest/bootstrap.php">
     <testsuites>
         <testsuite name="Kohana Tests">
             <directory>./</directory>
         </testsuite>
     </testsuites>
-    <php>
-        <server name="KOHANA_ENV" value="testing"/>
-    </php>
 </phpunit>
