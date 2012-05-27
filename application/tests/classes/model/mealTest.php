@@ -49,16 +49,6 @@ class mealTest extends Kohana_UnitTest_TestCase
         $this->assertEquals(1,$meals->current()->id);
     }
 
-    public function testFiltersUpcoming()
-    {
-        $this->fail('unimplemented test');
-    }
-
-    public function testFiltersPrevious()
-    {
-        $this->fail('unimplemented test');
-    }
-
     public function testToStringPrintsDate()
     {
         $meal = ORM::factory('meal',array('date' => '2011-06-05'));
