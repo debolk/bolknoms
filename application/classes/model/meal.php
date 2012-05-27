@@ -111,7 +111,7 @@ class Model_meal extends ORM
      */
     public function promotions()
     {
-        return $this->where('promoted','=','1');
+        return $this->upcoming()->where('promoted','=','1');
     }
 
     /**
