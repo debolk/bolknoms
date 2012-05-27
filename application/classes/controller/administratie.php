@@ -110,6 +110,7 @@ class Controller_Administratie extends Controller_Application
         $registration = ORM::factory('registration')->values($data,array('meal_id','name','handicap'));
         try {
             $registration->save();
+            Log::instance()->add(Log::NOTICE, "Aangemeld: administratie|$registration->id|$registration->name");
             echo View::factory('administratie/_meal',array('meal' => $meal));
         }
         catch (ORM_Validation_Exception $e) {

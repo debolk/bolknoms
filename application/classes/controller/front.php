@@ -34,7 +34,8 @@ class Controller_Front extends Controller_Application
                 $reg->handicap = $handicap;
                 $reg->meal = ORM::factory('meal', $meal->id);
                 try {
-                    $reg->save();    
+                    $reg->save();
+                    Log::instance()->add(Log::NOTICE, "Aangemeld: specifiek|$reg->id|$reg->name");
                 }
                 catch (ORM_Validation_Exception $e) {
                     // Do nothing; errors are retrieved in view
@@ -80,7 +81,8 @@ class Controller_Front extends Controller_Application
                 $reg->name = $name;
                 $reg->meal = $meal;
                 try {
-                    $reg->save();    
+                    $reg->save(); 
+                    Log::instance()->add(Log::NOTICE, "Aangemeld: snel|$reg->id|$reg->name");
                 }
                 catch (ORM_Validation_Exception $e) {
                     // Do nothing; errors are retrieved in view
@@ -121,6 +123,7 @@ class Controller_Front extends Controller_Application
                 $reg->handicap = $handicap;
                 $reg->meal = ORM::factory('meal', (int)$meal_id);
                 $reg->save();
+                Log::instance()->add(Log::NOTICE, "Aangemeld: uitgebreid|$reg->id|$reg->name");
                 $registrations[] = $reg;
             }
             // Update user
