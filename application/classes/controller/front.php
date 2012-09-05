@@ -150,7 +150,11 @@ class Controller_Front extends Controller_Application
         if ($registration->loaded()) {
             if ($registration->meal->open_for_registrations()) {
                 $date = (string)$registration->meal;
+                $id = $registration->id;
+                $name = $registration->name;
+                $meal = $registration->meal->date;
                 $registration->delete();
+                Log::instance()->add(Log::NOTICE, "Afgemeld: e-mail|$id|$name|$meal");
                 Flash::set(Flash::SUCCESS, "Je bent afgemeld voor de maaltijd op $date");
             }
             else {
