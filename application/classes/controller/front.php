@@ -75,7 +75,7 @@ class Controller_Front extends Controller_Application
             // Escape data
             $name = HTML::chars($_POST['name']);
             // Find the first meal
-            $meal = ORM::factory('meal')->upcoming()->find();
+            $meal = ORM::factory('meal')->available()->find();
             if ($meal->loaded()) {
                 $reg = ORM::factory('registration');
                 $reg->name = $name;
