@@ -88,7 +88,7 @@ class Controller_Front extends Controller_Application
                     // Do nothing; errors are retrieved in view
                 }
                 // Update user
-                Flash::set(Flash::SUCCESS, '<p>Aanmelding geslaagd. Je kunt vanavond mee-eten.</p>'.Helper_Chef::random_video());
+                Flash::set(Flash::SUCCESS, '<p>Aanmelding geslaagd. Je kunt mee-eten.</p>'.Helper_Chef::random_video());
             }
             else {
                 throw new HTTP_Exception_404('Maaltijd niet gevonden');
