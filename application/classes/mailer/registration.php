@@ -17,7 +17,7 @@ class Mailer_Registration
         $to = "$name <$email>";
 
         $headers  = 'From: Bolknoms <no-reply@debolk.nl>'.PHP_EOL;
-        $headers .= 'Reply-To: bestuur@nieuwedelft.nl'.PHP_EOL;
+        $headers .= 'Reply-To: '.Kohana::$config->load('bolknoms.email.reply_to').PHP_EOL;
         $headers .= 'Content-type: text/html'.PHP_EOL;
 
         mail($to, $title, $body, $headers);

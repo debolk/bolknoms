@@ -13,7 +13,5 @@
     <?php endforeach; ?>
 </ul>
 <p>
-    Met vriendelijke groet,<br />
-    Ruben Maessen<br />
-    Commissaris Maaltijden, D.S.V. Nieuwe Delft (De Bolk)
+  <?php echo Kohana::$config->load('bolknoms.email.footer'); ?>
 </p>
