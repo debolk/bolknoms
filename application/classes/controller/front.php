@@ -75,7 +75,7 @@ class Controller_Front extends Controller_Application
             // Escape data
             $name = HTML::chars($_POST['name']);
             // Find the first meal
-            $meal = ORM::factory('meal')->upcoming()->find();
+            $meal = ORM::factory('meal')->available()->find();
             if ($meal->loaded()) {
                 $reg = ORM::factory('registration');
                 $reg->name = $name;
@@ -88,7 +88,7 @@ class Controller_Front extends Controller_Application
                     // Do nothing; errors are retrieved in view
                 }
                 // Update user
-                Flash::set(Flash::SUCCESS, '<p>Aanmelding geslaagd. Je kunt vanavond mee-eten.</p>'.Helper_Chef::random_video());
+                Flash::set(Flash::SUCCESS, '<p>Aanmelding geslaagd. Je kunt mee-eten.</p>'.Helper_Chef::random_video());
             }
             else {
                 throw new HTTP_Exception_404('Maaltijd niet gevonden');
@@ -150,7 +150,11 @@ class Controller_Front extends Controller_Application
         if ($registration->loaded()) {
             if ($registration->meal->open_for_registrations()) {
                 $date = (string)$registration->meal;
+                $id = $registration->id;
+                $name = $registration->name;
+                $meal = $registration->meal->date;
                 $registration->delete();
+                Log::instance()->add(Log::NOTICE, "Afgemeld: e-mail|$id|$name|$meal");
                 Flash::set(Flash::SUCCESS, "Je bent afgemeld voor de maaltijd op $date");
             }
             else {
