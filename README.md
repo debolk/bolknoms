@@ -14,9 +14,9 @@ All releases are tagged using [Semantic Versioning 2.0.0-rc.1](http://semver.org
 
 ## Basic installation
 1. Download the code or git clone the repo
-1. Rename config/database.sample.php to config/database.php and fill in the details
-1. Rename config/bolknoms.sample.php to config/bolknoms.php and fill in the details
-1. Rename public/.htaccess.sample to public/.htaccess and fill in the details
+1. Copy config/database.sample.php to config/database.php and fill in the details
+1. Copy config/bolknoms.sample.php to config/bolknoms.php and fill in the details
+1. Copy public/.htaccess.sample to public/.htaccess and fill in the details
 1. Create a database and execute all migrations (/migrations/*.sql) in alphabetical filename order
 1. Upload to your server
 1. Point your servers webroot to /public/
