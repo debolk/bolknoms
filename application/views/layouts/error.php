@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>bolknoms</title>
+        <title>BolkNoms</title>
 
         <link rel="stylesheet" href="/stylesheets/jquery-ui.css" type="text/css"/>
         <link rel="stylesheet" href="/stylesheets/application.css" type="text/css"/>
