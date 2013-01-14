@@ -2,6 +2,10 @@
 
 class Controller_Error extends Controller_Application
 {
+    public function action_400()
+    {
+        $this->response->status(400);
+    }
     
     public function action_403()
     {

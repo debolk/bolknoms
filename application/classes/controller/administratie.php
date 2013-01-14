@@ -19,8 +19,18 @@ class Controller_Administratie extends Controller_Application
      */
     public function action_index()
     {
-        $this->template->content->upcoming_meals = ORM::factory('meal')->upcoming()->find_all();
-        $this->template->content->previous_meals = ORM::factory('meal')->previous()->find_all();
+        $count = Arr::get($_GET, 'count', 5);
+        if (!is_numeric($count)) {
+            throw new HTTP_Exception_400();
+        }
+        $upcoming_meals = ORM::factory('meal')->upcoming();
+        $previous_meals = ORM::factory('meal')->previous();
+        if ($count > 0) {
+          $upcoming_meals->limit($count);
+          $previous_meals->limit($count);
+        }
+        $this->template->content->upcoming_meals = $upcoming_meals->find_all();
+        $this->template->content->previous_meals = $previous_meals->find_all();
     }
 
     /**

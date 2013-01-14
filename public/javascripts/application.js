@@ -18,6 +18,11 @@ $(document).ready(function() {
         });
     }
 
+    // Set the total amount of meals in the administration interface
+    $('body.administratie.index select#count').change(function(){
+      $(this).parents('form').submit();
+    });
+
     $('.confirmation-needed').live("click",confirm_intent);
 
     $('.destroy-registration').live("click",remove_registration);

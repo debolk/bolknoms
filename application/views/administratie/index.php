@@ -2,10 +2,20 @@
 
 <?php echo Flash::display_messages(); ?>
 
-<a href="administratie/nieuwe_maaltijd">
+<p>
+  <a href="administratie/nieuwe_maaltijd">
     <img src="/images/add.png" alt="" />
     Nieuwe maaltijd toevoegen
-</a>
+  </a>
+</p>
+
+<form action="" method="get">
+  <p>
+    Toon
+    <?php echo Form::select('count', array('5' => '5', '13' => '13', '25' => '25', '100' => '100', '0' => 'alle'), Arr::get($_GET, 'count', 10), array('id' => 'count')); ?> 
+    maaltijden per lijst
+  </p>
+</form>
 
 <h2>Komende maaltijden</h2>
 <?php echo View::factory('administratie/_meals',array('meals' => $upcoming_meals)); ?>
