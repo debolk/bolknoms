@@ -3,6 +3,7 @@
 class Model_meal extends ORM
 {
     protected $_has_many = array('registrations' => array());
+    protected $sorting = array('date' => 'desc');
 
     /**
      * Defines the validation rules for this model
@@ -21,18 +22,6 @@ class Model_meal extends ORM
                                    array(array($this, 'valid_time'))
                                )
                 );
-    }
-
-    /**
-     * Initializes the model, setting the default ordering to date
-     * @param int $id
-     */
-    public function __construct($id = null)
-    {
-        parent::__construct($id);
-
-        // Default sorting order
-        $this->order_by('date', 'asc');
     }
 
     /**
@@ -70,7 +59,7 @@ class Model_meal extends ORM
      */
     public function previous()
     {
-        return $this->where('date', '<', date('Y-m-d'));
+        return $this->where('date', '<', date('Y-m-d'))->order_by('date', 'desc');
     }
 
     /**
