@@ -2,6 +2,8 @@
 
 class Controller_Error extends Controller_Application
 {
+    public $template = 'layouts/error';
+
     public function action_400()
     {
         $this->response->status(400);

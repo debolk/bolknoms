@@ -2,6 +2,8 @@
 
 class Controller_Administratie extends Controller_Application
 {
+    public $template = 'layouts/administratie';
+
     /**
      * Initializes the controller, forcing all users to authenticate before touching anything
      */
