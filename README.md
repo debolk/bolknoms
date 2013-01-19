@@ -26,3 +26,6 @@ Bolknoms is built using the latest version of the [Kohana framework](http://koha
 
 ### Maintenance mode
 You can put the application in maintenance mode by copying public/maintenance.sample.html to public/maintenance.html. Please note that this is only a simple HTML-page and that the application will be accessible to anyone who knows the URLs.
+
+# License
+Copyright 2012 [Jakob Buis](http://www.jakobbuis.com). Distributed under the [GNU Lesser General Public License, version 3.0](http://opensource.org/licenses/lgpl-3.0.html).
