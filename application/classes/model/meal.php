@@ -3,7 +3,7 @@
 class Model_meal extends ORM
 {
     protected $_has_many = array('registrations' => array());
-    protected $sorting = array('date' => 'desc');
+    protected $_sorting = array('date' => 'asc');
 
     /**
      * Defines the validation rules for this model
