@@ -48,6 +48,7 @@ class Model_meal extends ORM
             $this->where('date', '=', date('Y-m-d'));
             $this->where('locked', '>=', strftime('%H:%I'));
         $this->where_close();
+		$this->order_by('date');
         // Enable method chaining for futher refinement
         return $this;
     }
