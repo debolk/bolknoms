@@ -3,18 +3,7 @@
 class Model_Registration extends ORM
 {
     protected $_belongs_to = array('meal' => array());
-
-    /**
-     * Initializes the model, setting the default ordering to name
-     * @param int $id
-     */
-    public function __construct($id = null)
-    {
-        parent::__construct($id);
-        
-        // Default sorting order
-        $this->order_by('name','asc');
-    }
+    protected $_sorting = array('name' => 'asc');
 
     /**
      * Defines the validation rules for this model
