@@ -86,6 +86,9 @@ Kohana::init(array(
     'profile'    => (Kohana::$environment !== Kohana::PRODUCTION),
 	'errors'	 => true
 ));
+if (Kohana::$environment == Kohana::DEVELOPMENT) {
+	ini_set('display_errors', 'on');
+}
 
 /**
  * Attach the file write to logging. Multiple writers are supported.
