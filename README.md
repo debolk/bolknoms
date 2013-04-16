@@ -8,11 +8,12 @@ The very best application in the world for feeding your members in an organized 
 * Something to send e-mails with
 
 ## Installation
-1. Download the code or git clone the repo
+1. Clone the repository using git
 1. Copy config/database.sample.php to config/database.php and fill in the details
 1. Copy config/bolknoms.sample.php to config/bolknoms.php and fill in the details
 1. Copy public/.htaccess.sample to public/.htaccess and fill in the details
 1. Create a database and execute all migrations (/migrations/*.sql) in alphabetical filename order
+1. Initialize the git submodules by executing `git submodule init` and `git submodule update`
 1. Upload to your server
 1. Point your servers webroot to /public/
 
