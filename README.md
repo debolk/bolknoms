@@ -14,6 +14,7 @@ The very best application in the world for feeding your members in an organized 
 1. Copy public/.htaccess.sample to public/.htaccess and fill in the details
 1. Create a database and execute all migrations (/migrations/*.sql) in alphabetical filename order
 1. Initialize the git submodules by executing `git submodule init` and `git submodule update`
+1. The application/cache and application/logs must be writeable by the server
 1. Upload to your server
 1. Point your servers webroot to /public/
 
