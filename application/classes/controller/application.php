@@ -74,7 +74,8 @@ abstract class Controller_Application extends Controller_Template
      */
     private function top($count = 5)
     {
-        View::set_global('top_eaters', ORM::factory('registration')->top($count));
+        View::set_global('top_eaters_alltime', ORM::factory('registration')->top_alltime($count));
+        View::set_global('top_eaters_ytd', ORM::factory('registration')->top_ytd($count));
     }
 
     /**
