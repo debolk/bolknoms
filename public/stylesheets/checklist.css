@@ -14,12 +14,7 @@ li {
 }
 
 input {
-    height: 32px;
     vertical-align: middle;
-}
-
-input[type="checkbox"] {
-    width: 32px;
 }
 
 table {
