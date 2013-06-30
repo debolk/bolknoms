@@ -52,7 +52,7 @@ class Controller_Front extends Controller_Application
             Flash::set(Flash::ERROR, $message);    
         }
         // Redirect back to form
-        $this->request->redirect(Route::url('inschrijven_specifiek',array('id' => $meal->id)));
+        $this->redirect(Route::url('inschrijven_specifiek',array('id' => $meal->id)));
     }
     
     /**
@@ -99,7 +99,7 @@ class Controller_Front extends Controller_Application
             Flash::set(Flash::ERROR, $message);    
         }
         // Redirect back to form
-        $this->request->redirect('/');
+        $this->redirect('/');
     }
 
     /**
@@ -134,7 +134,7 @@ class Controller_Front extends Controller_Application
             $message = $this->errors($validation);
             Flash::set(Flash::ERROR, $message);
         }
-        $this->request->redirect('/');
+        $this->redirect('/');
     }
 
     /**
@@ -164,7 +164,7 @@ class Controller_Front extends Controller_Application
         else {
             Flash::set(Flash::ERROR, 'Je bent niet afgemeld voor de maaltijd. Dat kan verschillende oorzaken hebben: <ul><li>je bent al eerder afgemeld</li><li>de beveiligingscode klopt niet (gebruik de link in je e-mail)</li></ul>');
         }
-        $this->request->redirect('/');
+        $this->redirect('/');
     }
 
     /**

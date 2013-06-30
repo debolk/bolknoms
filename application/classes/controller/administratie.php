@@ -50,7 +50,7 @@ class Controller_Administratie extends Controller_Application
                 $meal->save();
                 Flash::set(Flash::SUCCESS, 'Maaltijd toegevoegd');
                 Log::instance()->add(Log::NOTICE, "Nieuwe maaltijd: $meal->id|$meal->date");
-                $this->request->redirect('/administratie');
+                $this->redirect('/administratie');
             }
             catch (ORM_Validation_Exception $e) {
                 // Nothing here, errors are retrieved in the view
@@ -79,7 +79,7 @@ class Controller_Administratie extends Controller_Application
                 $meal->save();
                 Flash::set(Flash::SUCCESS, 'Maaltijd geüpdate');
                 Log::instance()->add(Log::NOTICE, "Maaltijd veranderd: $meal->id|$meal->date");
-                $this->request->redirect(Route::url('default',array('controller' => 'administratie')));
+                $this->redirect(Route::url('default',array('controller' => 'administratie')));
             }
             catch (ORM_Validation_Exception $e) {
                 // Nothing here, errors are retrieved in the view
@@ -100,7 +100,7 @@ class Controller_Administratie extends Controller_Application
 
         Flash::set(Flash::SUCCESS,"Maaltijd op $date verwijderd");
         Log::instance()->add(Log::NOTICE, "Maaltijd verwijderd: $date");
-        $this->request->redirect('/administratie');
+        $this->redirect('/administratie');
     }
 
     /**
@@ -155,7 +155,7 @@ class Controller_Administratie extends Controller_Application
         }
         else {
             Flash::set(Flash::SUCCESS,"$name afgemeld voor de maaltijd op $meal");
-            $this->request->redirect('/administratie');
+            $this->redirect('/administratie');
         }
     }
 
