@@ -1,2 +1,2 @@
 ALTER TABLE `meals`
-	ADD COLUMN `locked` TIME NOT NULL AFTER `date`
+	ADD COLUMN `locked` TIME NOT NULL AFTER `date`;
