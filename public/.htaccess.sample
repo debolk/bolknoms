@@ -1,5 +1,6 @@
-# Set environment
+# Set configuration
 SetEnv KOHANA_ENV "development"
+setEnv COOKIE_SALT "somethingverylongandrandomgoeshere"
 
 # Turn on URL rewriting
 RewriteEngine On
