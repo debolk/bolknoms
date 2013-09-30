@@ -128,7 +128,16 @@ class Controller_Front extends Controller_Application
             }
             // Update user
             Mailer_Registration::send_confirmation($name, $email, $registrations);
-            Flash::set(Flash::SUCCESS, '<p>Aanmelding geslaagd. Je ontvangt een e-mail met alle details.</p>'.Helper_Chef::random_video());
+
+            // Determine success text
+            if (trim($email)) {
+                $text = 'Aanmelding geslaagd. Je ontvangt een e-mail met alle details.';
+            }
+            else {
+                $text = 'Aanmelding geslaagd. ';
+            }
+
+            Flash::set(Flash::SUCCESS, "<p>$text</p>".Helper_Chef::random_video());
         }
         else {
             $message = $this->errors($validation);
