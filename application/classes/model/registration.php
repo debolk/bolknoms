@@ -47,7 +47,13 @@ class Model_Registration extends ORM
      */
     public function top_alltime($count = 5)
     {
-        return DB::query(Database::SELECT, 'SELECT name, COUNT(name) AS count FROM registrations GROUP BY name ORDER BY count DESC LIMIT :count')->bind(':count',$count)->as_object('Model_Registration')->execute();
+        return DB::query(Database::SELECT, 'SELECT name, COUNT(name) AS count 
+                                                                    FROM registrations 
+                                                                    LEFT JOIN meals ON registrations.meal_id = meals.id
+                                                                    WHERE meals.date <= NOW() 
+                                                                    GROUP BY name 
+                                                                    ORDER BY count 
+                                                                    DESC LIMIT :count')->bind(':count',$count)->as_object('Model_Registration')->execute();
     }
 
     /**
@@ -61,6 +67,7 @@ class Model_Registration extends ORM
                   FROM registrations 
                   LEFT JOIN meals ON registrations.meal_id = meals.id
                   WHERE meals.date >= :soy 
+                  AND meals.date <= NOW()
                   GROUP BY name 
                   ORDER BY count DESC 
                   LIMIT :count';
