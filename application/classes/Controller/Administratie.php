@@ -25,8 +25,8 @@ class Controller_Administratie extends Controller_Application
         if (!is_numeric($count)) {
             throw new HTTP_Exception_400();
         }
-        $upcoming_meals = ORM::factory('meal')->upcoming();
-        $previous_meals = ORM::factory('meal')->previous();
+        $upcoming_meals = ORM::factory('Meal')->upcoming();
+        $previous_meals = ORM::factory('Meal')->previous();
         if ($count > 0) {
           $upcoming_meals->limit($count);
           $previous_meals->limit($count);
@@ -41,7 +41,7 @@ class Controller_Administratie extends Controller_Application
      */
     public function action_nieuwe_maaltijd()
     {
-        $this->template->content->meal = $meal = ORM::factory('meal');
+        $this->template->content->meal = $meal = ORM::factory('Meal');
 
         if ($_POST) {
             $_POST = Helper_Form::prep_form($_POST);
@@ -122,7 +122,7 @@ class Controller_Administratie extends Controller_Application
         }
 
         // Create a new registration
-        $registration = ORM::factory('registration')->values($data,array('meal_id','name','handicap'));
+        $registration = ORM::factory('Registration')->values($data,array('meal_id','name','handicap'));
         try {
             $registration->save();
             Log::instance()->add(Log::NOTICE, "Aangemeld: administratie|$registration->id|$registration->name");
@@ -168,7 +168,7 @@ class Controller_Administratie extends Controller_Application
     {
         $id = Arr::get($_GET, 'meal_id');
 
-        $meals = ORM::factory('meal')->upcoming()->find_all();
+        $meals = ORM::factory('Meal')->upcoming()->find_all();
         $dates = array();
         foreach ($meals as $meal) {
             if ($id !== $meal->id) {

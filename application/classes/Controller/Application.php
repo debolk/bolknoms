@@ -74,8 +74,8 @@ abstract class Controller_Application extends Controller_Template
      */
     private function top($count = 5)
     {
-        View::set_global('top_eaters_alltime', ORM::factory('registration')->top_alltime($count));
-        View::set_global('top_eaters_ytd', ORM::factory('registration')->top_ytd($count));
+        View::set_global('top_eaters_alltime', ORM::factory('Registration')->top_alltime($count));
+        View::set_global('top_eaters_ytd', ORM::factory('Registration')->top_ytd($count));
     }
 
     /**
@@ -83,6 +83,6 @@ abstract class Controller_Application extends Controller_Template
      */
     private function promotions()
     {
-        View::set_global('promoted_meals', ORM::factory('meal')->promotions()->find_all());
+        View::set_global('promoted_meals', ORM::factory('Meal')->promotions()->find_all());
     }
 }
