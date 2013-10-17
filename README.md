@@ -32,4 +32,4 @@ Bolknoms is built using the latest version of the [Kohana framework](http://koha
 The repository follows the [nvie branching model](http://nvie.com/posts/a-successful-git-branching-model/). The master branch contains all features currently in deployment. The develop branch contains all stable features. Any new work must be branched of in a feature branch. These branches are prefixed with "feature-", for example "feature-moreswedishchef". Preferrably no underscores.
 
 ## License
-Copyright 2012 [Jakob Buis](http://www.jakobbuis.com). Distributed under the [GNU Lesser General Public License, version 3.0](http://opensource.org/licenses/lgpl-3.0.html).
+Copyright 2012-2013 [Jakob Buis](http://www.jakobbuis.com). Distributed under the [GNU Lesser General Public License, version 3.0](http://opensource.org/licenses/lgpl-3.0.html).
