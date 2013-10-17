@@ -1,7 +1,20 @@
 {
+  "name": "debolk/bolknoms",
+  "description": "Bolknoms: the very best application in the world for feeding your members in an organized and predictable way.",
+  "license": "GPL-3.0",
+  "authors": [
+    {"name": "Jakob Buis", 
+      "email": "jpabuis@gmail.com",
+      "homepage": "http://www.jakobbuis.com",
+      "role": "lead developer"
+    }
+  ],
   "require": {
-    "kohana/core": "~3.2.0",
-    "kohana/database": "~3.2.0",
-    "kohana/orm": "~3.2.0"
+    "kohana/core": "~3.3.1",
+    "kohana/database": "~3.3.1",
+    "kohana/orm": "~3.3.1"
+  },
+  "require-dev": {
+    "kohana/unittest": "~3.3.1"
   }
 }
