@@ -9,9 +9,10 @@ The very best application in the world for feeding your members in an organized 
 
 ## Installation
 1. Clone the repository using git
-1. Copy application/config/database.sample.php to application/config/database.php and fill in the details
-1. Copy application/config/bolknoms.sample.php to application/config/bolknoms.php and fill in the details
-1. Copy public/.htaccess.sample to public/.htaccess and fill in the details
+1. Copy the following configuration files and change as needed
+11. application/config/database.sample.php -> application/config/database.php
+11. application/config/bolknoms.sample.php -> application/config/bolknoms.php
+11. public/.htaccess.sample -> public/.htaccess
 1. Create a database and execute all migrations (/migrations/*.sql) in alphabetical filename order
 1. Initialize the git submodules by executing `git submodule init` and `git submodule update`
 1. The application/cache and application/logs must be writeable by the server
