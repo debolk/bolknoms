@@ -11,7 +11,7 @@
 
         <base href="<?php echo URL::base(true,true); ?>" />
     </head>
-    <body class="<?php echo Request::$current->controller(); ?> <?php echo Request::$current->action(); ?>">
+   <body class="<?php echo strtolower(Request::$current->controller()); ?> <?php echo Request::$current->action(); ?>">
         <div id="container" class="clearfix">
             <div class="content clearfix">
                 <?php echo $content; ?>
