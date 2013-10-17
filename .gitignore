@@ -4,3 +4,6 @@ database.php
 maintenance.html
 bolknoms.php
 vendor
+modules/database
+modules/orm
+modules/unittest
