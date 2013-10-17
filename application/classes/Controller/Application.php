@@ -27,7 +27,7 @@ abstract class Controller_Application extends Controller_Template
      */
     private function _load_default_view()
     {
-        $view_file = $this->request->controller() . DIRECTORY_SEPARATOR . $this->request->action();
+        $view_file = strtolower($this->request->controller() . DIRECTORY_SEPARATOR . $this->request->action());
         if (Kohana::find_file('views', $view_file, 'php')) {
             $this->template->content = View::factory($view_file);
         }
