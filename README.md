@@ -14,7 +14,7 @@ The very best application in the world for feeding your members in an organized 
 11. application/config/bolknoms.sample.php -> application/config/bolknoms.php
 11. public/.htaccess.sample -> public/.htaccess
 1. Create a database and execute all migrations (/migrations/*.sql) in alphabetical filename order
-1. Initialize the git submodules by executing `git submodule init` and `git submodule update`
+1. Install the dependencies using composer by executing `composer install`
 1. The application/cache and application/logs must be writeable by the server
 1. Upload to your server
 1. Point your servers webroot to /public/
