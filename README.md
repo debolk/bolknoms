@@ -10,9 +10,9 @@ The very best application in the world for feeding your members in an organized 
 ## Installation
 1. Clone the repository using git
 1. Copy the following configuration files and change as needed
-11. application/config/database.sample.php -> application/config/database.php
-11. application/config/bolknoms.sample.php -> application/config/bolknoms.php
-11. public/.htaccess.sample -> public/.htaccess
+    1. application/config/database.sample.php -> application/config/database.php
+    1. application/config/bolknoms.sample.php -> application/config/bolknoms.php
+    1. public/.htaccess.sample -> public/.htaccess
 1. Create a database and execute all migrations (/migrations/*.sql) in alphabetical filename order
 1. Install the dependencies using composer by executing `composer install`
 1. The application/cache and application/logs must be writeable by the server
