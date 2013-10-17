@@ -8,7 +8,7 @@ class Controller_Front extends Controller_Application
      */
     public function action_index()
     {
-        $this->template->content->upcoming_meal = ORM::factory('meal')->available()->find();
+        $this->template->content->upcoming_meal = ORM::factory('Meal')->available()->find();
     }
 
     public function action_inschrijven_specifiek()
@@ -28,7 +28,7 @@ class Controller_Front extends Controller_Application
             $email = HTML::chars($_POST['email']);
             
             if ($meal->loaded()) {
-                $reg = ORM::factory('registration');
+                $reg = ORM::factory('Registration');
                 $reg->name = $name;
                 $reg->email = $email;
                 $reg->handicap = $handicap;
@@ -52,7 +52,7 @@ class Controller_Front extends Controller_Application
             Flash::set(Flash::ERROR, $message);    
         }
         // Redirect back to form
-        $this->request->redirect(Route::url('inschrijven_specifiek',array('id' => $meal->id)));
+        $this->redirect(Route::url('inschrijven_specifiek',array('id' => $meal->id)));
     }
     
     /**
@@ -61,7 +61,7 @@ class Controller_Front extends Controller_Application
      */
     public function action_uitgebreidinschrijven()
     {
-        $this->template->content->meals = ORM::factory('meal')->available()->find_all();
+        $this->template->content->meals = ORM::factory('Meal')->available()->find_all();
     }
     
     /**
@@ -75,9 +75,9 @@ class Controller_Front extends Controller_Application
             // Escape data
             $name = HTML::chars($_POST['name']);
             // Find the first meal
-            $meal = ORM::factory('meal')->available()->find();
+            $meal = ORM::factory('Meal')->available()->find();
             if ($meal->loaded()) {
-                $reg = ORM::factory('registration');
+                $reg = ORM::factory('Registration');
                 $reg->name = $name;
                 $reg->meal = $meal;
                 try {
@@ -99,7 +99,7 @@ class Controller_Front extends Controller_Application
             Flash::set(Flash::ERROR, $message);    
         }
         // Redirect back to form
-        $this->request->redirect('/');
+        $this->redirect('/');
     }
 
     /**
@@ -117,7 +117,7 @@ class Controller_Front extends Controller_Application
             // Create registrations
             $registrations = array();
             foreach ($_POST['meals'] as $meal_id) {
-                $reg = ORM::factory('registration');
+                $reg = ORM::factory('Registration');
                 $reg->name = $name;
                 $reg->email = $email;
                 $reg->handicap = $handicap;
@@ -143,7 +143,7 @@ class Controller_Front extends Controller_Application
             $message = $this->errors($validation);
             Flash::set(Flash::ERROR, $message);
         }
-        $this->request->redirect('/');
+        $this->redirect('/');
     }
 
     /**
@@ -173,7 +173,7 @@ class Controller_Front extends Controller_Application
         else {
             Flash::set(Flash::ERROR, 'Je bent niet afgemeld voor de maaltijd. Dat kan verschillende oorzaken hebben: <ul><li>je bent al eerder afgemeld</li><li>de beveiligingscode klopt niet (gebruik de link in je e-mail)</li></ul>');
         }
-        $this->request->redirect('/');
+        $this->redirect('/');
     }
 
     /**

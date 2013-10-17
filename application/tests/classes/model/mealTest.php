@@ -13,16 +13,16 @@ class mealTest extends Kohana_UnitTest_TestCase
 
     public function testSavesAValidMeal()
     {
-        $count = (int)ORM::factory('meal')->count_all();
-        ORM::factory('meal')->values(array('date' => '2020-01-01', 'locked' => '14:00'))->save();
-        $this->assertEquals($count+1, (int)ORM::factory('meal')->count_all());
+        $count = (int)ORM::factory('Meal')->count_all();
+        ORM::factory('Meal')->values(array('date' => '2020-01-01', 'locked' => '14:00'))->save();
+        $this->assertEquals($count+1, (int)ORM::factory('Meal')->count_all());
     }
 
     public function testSavesRegistrations()
     {
-        $meal = ORM::factory('meal')->values(array('date' => strftime('%Y-%m-%d'), 'locked' => '14:00'))->save();
-        $r1 = ORM::factory('registration')->values(array('name' => 'Jakob','email' => 'jpabuis@gmail.com', 'salt' => '123', 'meal_id' => $meal->pk()))->save();
-        $r2 = ORM::factory('registration')->values(array('name' => 'Ruben','email' => 'ruben_m@gmail.com', 'salt' => '123', 'meal_id' => $meal->pk()))->save();
+        $meal = ORM::factory('Meal')->values(array('date' => strftime('%Y-%m-%d'), 'locked' => '14:00'))->save();
+        $r1 = ORM::factory('Registration')->values(array('name' => 'Jakob','email' => 'jpabuis@gmail.com', 'salt' => '123', 'meal_id' => $meal->pk()))->save();
+        $r2 = ORM::factory('Registration')->values(array('name' => 'Ruben','email' => 'ruben_m@gmail.com', 'salt' => '123', 'meal_id' => $meal->pk()))->save();
         $this->assertEquals(2, $meal->registrations->count_all());
     }
 
@@ -31,7 +31,7 @@ class mealTest extends Kohana_UnitTest_TestCase
      */
     public function testDoesNotSaveAnInvalidMeal()
     {
-        ORM::factory('meal')->save();
+        ORM::factory('Meal')->save();
     }
 
     public function testHasDefaultOrdering()
@@ -41,7 +41,7 @@ class mealTest extends Kohana_UnitTest_TestCase
         $tomorrow = strftime('%Y-%m-%d', strtotime('tomorrow'));
         DB::query(Database::INSERT, "INSERT INTO meals (id, date) VALUES ('1', '$tomorrow'), ('2', '$yesterday'), ('3', '$today')")->execute();
 
-        $meals = ORM::factory('meal')->find_all();
+        $meals = ORM::factory('Meal')->find_all();
         $this->assertEquals(2,$meals->current()->id);
         $meals->next();
         $this->assertEquals(3,$meals->current()->id);
