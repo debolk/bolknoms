@@ -179,7 +179,7 @@ Route::set('privacy', 'privacy')
    'action'     => 'privacy',
  ));
 
- Route::set('default', '(/(<controller>(/<action>(/<id>))))')
+ Route::set('default', '(<controller>(/<action>(/<id>)))')
  ->defaults(array(
    'controller' => 'front',
    'action'     => 'index',
