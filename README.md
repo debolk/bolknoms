@@ -1,5 +1,8 @@
 # Bolknoms
 
+## Project is obsolete
+This project is obsolete and has been superseded by bolknoms2, available at [debolk/bolknoms2](http://www.github.com/debolk/bolknoms2). Development on this project has been halted and new issues will not be taken into consideration. Please report any issues against the new repository. 
+
 The very best application in the world for feeding your members in an organized and predictable way.
 
 ## Requirements
